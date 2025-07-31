@@ -2,41 +2,61 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
-All colors MUST be HSL.
-*/
+/* Deep Investment Design System - Professional Wealth Management Theme */
 
 @layer base {
   :root {
+    /* Brand Colors */
+    --primary: 210 75% 35%; /* Navy Blue #115196 */
+    --primary-foreground: 0 0% 100%;
+    --accent: 44 96% 50%; /* Golden Yellow #f0ab0a */
+    --accent-foreground: 210 75% 35%;
+    
+    /* Background Colors */
     --background: 0 0% 100%;
-    --foreground: 222.2 84% 4.9%;
-
+    --foreground: 210 75% 35%;
+    --surface: 150 25% 96%; /* Light Gray #F5F6F5 */
+    --surface-foreground: 210 75% 35%;
+    
+    /* Card and Component Colors */
     --card: 0 0% 100%;
-    --card-foreground: 222.2 84% 4.9%;
-
+    --card-foreground: 210 75% 35%;
     --popover: 0 0% 100%;
-    --popover-foreground: 222.2 84% 4.9%;
+    --popover-foreground: 210 75% 35%;
+    
+    /* Secondary Colors */
+    --secondary: 150 25% 96%;
+    --secondary-foreground: 210 75% 35%;
+    --muted: 215 16% 47%;
+    --muted-foreground: 215 16% 47%;
+    
+    /* Interactive States */
+    --border: 214 31% 91%;
+    --input: 214 31% 91%;
+    --ring: 210 75% 35%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Gradients */
+    --gradient-hero: linear-gradient(135deg, hsl(210 75% 35%), hsl(210 75% 45%));
+    --gradient-accent: linear-gradient(135deg, hsl(44 96% 50%), hsl(44 96% 60%));
+    --gradient-subtle: linear-gradient(180deg, hsl(0 0% 100%), hsl(150 25% 96%));
+    
+    /* Shadows */
+    --shadow-soft: 0 4px 6px -1px hsl(210 75% 35% / 0.1), 0 2px 4px -2px hsl(210 75% 35% / 0.1);
+    --shadow-medium: 0 10px 15px -3px hsl(210 75% 35% / 0.1), 0 4px 6px -4px hsl(210 75% 35% / 0.1);
+    --shadow-large: 0 25px 50px -12px hsl(210 75% 35% / 0.25);
+    --shadow-glow: 0 0 40px hsl(44 96% 50% / 0.3);
+    
+    /* Typography */
+    --font-family-base: 'Inter', 'Roboto', system-ui, -apple-system, sans-serif;
+    --font-family-heading: 'Poppins', 'Inter', system-ui, -apple-system, sans-serif;
+    
+    /* Animation */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
 
-    --primary: 222.2 47.4% 11.2%;
-    --primary-foreground: 210 40% 98%;
-
-    --secondary: 210 40% 96.1%;
-    --secondary-foreground: 222.2 47.4% 11.2%;
-
-    --muted: 210 40% 96.1%;
-    --muted-foreground: 215.4 16.3% 46.9%;
-
-    --accent: 210 40% 96.1%;
-    --accent-foreground: 222.2 47.4% 11.2%;
-
-    --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 40% 98%;
-
-    --border: 214.3 31.8% 91.4%;
-    --input: 214.3 31.8% 91.4%;
-    --ring: 222.2 84% 4.9%;
-
-    --radius: 0.5rem;
+    --radius: 0.75rem;
 
     --sidebar-background: 0 0% 98%;
 
@@ -100,6 +120,58 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-foreground font-base;
+    font-family: var(--font-family-base);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-family-heading);
+  }
+}
+
+@layer components {
+  /* Hero Button Variant */
+  .btn-hero {
+    @apply bg-accent text-accent-foreground hover:shadow-glow transition-all duration-300 hover:scale-105 font-semibold px-8 py-4 rounded-xl;
+  }
+
+  /* Primary Button Variant */
+  .btn-primary {
+    @apply bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 font-semibold px-6 py-3 rounded-lg;
+  }
+
+  /* Surface Card */
+  .surface-card {
+    @apply bg-card rounded-xl p-6 shadow-soft hover:shadow-medium transition-all duration-300;
+  }
+
+  /* Gradient Hero Background */
+  .hero-gradient {
+    background: var(--gradient-hero);
+  }
+
+  /* Accent Gradient */
+  .accent-gradient {
+    background: var(--gradient-accent);
+  }
+
+  /* Subtle Background */
+  .surface-gradient {
+    background: var(--gradient-subtle);
+  }
+
+  /* Animations */
+  .fade-in {
+    @apply animate-fade-in;
+  }
+
+  .hover-lift {
+    @apply transition-transform duration-300 hover:-translate-y-2;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
 }
