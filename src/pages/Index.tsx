@@ -11,7 +11,7 @@ const Index = () => {
     <Layout>
       <Hero 
         title="Empowering Wealth for Life and Legacy"
-        subtitle="Founded in 2003, Deep Investment helps families and businesses in Bharuch and across India protect, manage, and grow their wealth. Our Certified Financial Planner and MDRT member bring more than 20 years of combined experience, and our firm's values mirror the best practices in the industry. Leading wealth managers emphasize service, trust, empathy, advice, and long-term relationships. We are committed to these same pillars through every interaction."
+        subtitle="Founded in 2003, Deep Investment helps families and businesses in Bharuch and across India protect, manage and grow their wealth. Our Certified Financial Planner and MDRT member bring more than 20 years of combined experience, and our firm's values mirror the best practices in the industry. Leading wealth managers emphasize service, trust, empathy, advice and long-term relationships. We are committed to these same pillars through every interaction."
         backgroundImage={financialChartsImage}
       />
       <TrustMetrics />
