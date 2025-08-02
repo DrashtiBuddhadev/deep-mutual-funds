@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
-import TrustMetrics from '@/components/TrustMetrics';
-import WealthJourney from '@/components/WealthJourney';
+import AboutSection from '@/components/AboutSection';
+import WealthJourneyBenefits from '@/components/WealthJourneyBenefits';
 import CTA from '@/components/CTA';
 import FAQ from '@/components/FAQ';
 import financialChartsImage from '@/assets/financial-charts.jpg';
@@ -14,7 +14,6 @@ const Index = () => {
         subtitle="Founded in 2003, Deep Investment helps families and businesses in Bharuch and across India protect, manage and grow their wealth. Our Certified Financial Planner and MDRT member bring more than 20 years of combined experience, and our firm's values mirror the best practices in the industry. Leading wealth managers emphasize service, trust, empathy, advice and long-term relationships. We are committed to these same pillars through every interaction."
         backgroundImage={financialChartsImage}
       />
-      <TrustMetrics />
       
       {/* Services Overview */}
       <section className="py-16 lg:py-24 bg-background">
@@ -29,8 +28,8 @@ const Index = () => {
           </p>
         </div>
       </section>
-      
-      <WealthJourney />
+      <AboutSection />
+      <WealthJourneyBenefits />
       <CTA />
       <FAQ />
     </Layout>

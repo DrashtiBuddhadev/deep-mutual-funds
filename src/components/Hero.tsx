@@ -18,8 +18,8 @@ const Hero = ({
 }: HeroProps) => {
   const services = [
     { icon: Shield, label: 'Corporate Risk Management' },
-    { icon: Home, label: 'Estate Creation and Legacy Planning' },
     { icon: TrendingUp, label: 'Mutual Fund & Investment Planning(SIP & SWP)' },
+    { icon: Home, label: 'Estate Creation and Legacy Planning' },
     { icon: Briefcase, label: 'Portfolio Management Services (PMS)' },
     { icon: Calculator, label: 'Tax and Compliance Advisory' }
   ];

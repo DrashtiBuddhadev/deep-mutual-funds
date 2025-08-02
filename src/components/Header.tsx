@@ -1,11 +1,21 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navigation = [
     { name: 'Home', href: '/' },
@@ -13,13 +23,20 @@ const Header = () => {
     { name: 'Our Services', href: '/services' },
     { name: 'Case Studies', href: '/case-studies' },
     { name: 'Our Blog', href: '/blog' },
-    { name: 'Pages', href: '/pages' },
+    { name: 'Contact Us', href: '/contact' },
   ];
 
   const isActive = (href: string) => location.pathname === href;
 
   return (
-    <header className="absolute top-0 left-0 right-0 z-50 bg-transparent">
+    <header 
+      className="sticky top-0 z-50 transition-all duration-300" 
+      style={{
+        backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.1)' : 'rgba(0, 0, 0, 0.8)',
+        backdropFilter: isScrolled ? 'blur(15px)' : 'blur(5px)',
+        borderBottom: isScrolled ? '1px solid rgba(255, 255, 255, 0.2)' : '1px solid rgba(255, 255, 255, 0.05)'
+      }}
+    >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
@@ -27,7 +44,7 @@ const Header = () => {
             <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{backgroundColor: '#e3b317'}}>
               <span className="text-white font-bold text-lg">D</span>
             </div>
-            <span className="font-heading font-bold text-lg sm:text-xl lg:text-2xl text-white">
+            <span className={`font-heading font-bold text-lg sm:text-xl lg:text-2xl transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>
               Deep Investment
             </span>
           </Link>
@@ -40,15 +57,15 @@ const Header = () => {
                 to={item.href}
                 className={`font-medium transition-colors ${
                   isActive(item.href) 
-                    ? 'border-b-2 text-white'
-                    : 'text-white'
+                    ? 'border-b-2'
+                    : ''
                 }`}
                 style={{
-                  color: isActive(item.href) ? '#e3b317' : 'white',
+                  color: isActive(item.href) ? '#e3b317' : (isScrolled ? 'black' : 'white'),
                   borderBottomColor: isActive(item.href) ? '#e3b317' : 'transparent'
                 }}
                 onMouseEnter={(e) => e.currentTarget.style.color = '#e3b317'}
-                onMouseLeave={(e) => e.currentTarget.style.color = isActive(item.href) ? '#e3b317' : 'white'}
+                onMouseLeave={(e) => e.currentTarget.style.color = isActive(item.href) ? '#e3b317' : (isScrolled ? 'black' : 'white')}
               >
                 {item.name}
               </Link>
@@ -65,9 +82,9 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="lg:hidden p-2 text-white transition-colors"
+            className={`lg:hidden p-2 transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}
             onMouseEnter={(e) => e.currentTarget.style.color = '#e3b317'}
-            onMouseLeave={(e) => e.currentTarget.style.color = 'white'}
+            onMouseLeave={(e) => e.currentTarget.style.color = isScrolled ? 'black' : 'white'}
           >
             {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
           </button>
@@ -75,19 +92,20 @@ const Header = () => {
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="lg:hidden py-4 bg-black/90 backdrop-blur-sm">
+          <div 
+            className="lg:hidden py-4 backdrop-blur-md"
+            style={{backgroundColor: isScrolled ? 'rgba(255, 255, 255, 0.15)' : 'rgba(0, 0, 0, 0.95)'}}
+          >
             <nav className="flex flex-col space-y-4">
               {navigation.map((item) => (
                 <Link
                   key={item.name}
                   to={item.href}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`font-medium transition-colors px-4 ${
-                    isActive(item.href) ? '' : 'text-white'
-                  }`}
-                  style={{color: isActive(item.href) ? '#e3b317' : 'white'}}
+                  className="font-medium transition-colors px-4"
+                  style={{color: isActive(item.href) ? '#e3b317' : (isScrolled ? 'black' : 'white')}}
                   onMouseEnter={(e) => e.currentTarget.style.color = '#e3b317'}
-                  onMouseLeave={(e) => e.currentTarget.style.color = isActive(item.href) ? '#e3b317' : 'white'}
+                  onMouseLeave={(e) => e.currentTarget.style.color = isActive(item.href) ? '#e3b317' : (isScrolled ? 'black' : 'white')}
                 >
                   {item.name}
                 </Link>
