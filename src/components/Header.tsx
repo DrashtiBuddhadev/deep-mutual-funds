@@ -41,12 +41,18 @@ const Header = () => {
         <div className="flex items-center justify-between h-16 lg:h-20">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-10 h-10 rounded-full flex items-center justify-center" style={{backgroundColor: '#e3b317'}}>
-              <span className="text-white font-bold text-lg">D</span>
-            </div>
-            <span className={`font-heading font-bold text-lg sm:text-xl lg:text-2xl transition-colors ${isScrolled ? 'text-black' : 'text-white'}`}>
-              Deep Investment
-            </span>
+            <img 
+              src={isScrolled ? "/images/logo1.jpeg" : "/images/logo_dark_theme.png"}
+              alt="Deep Investment"
+              className="transition-all duration-300"
+              style={{ 
+                height: '60px', 
+                width: '120px',
+                minHeight: '60px', 
+                minWidth: '120px',
+                objectFit: 'contain'
+              }}
+            />
           </Link>
 
           {/* Desktop Navigation */}

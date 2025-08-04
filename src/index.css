@@ -197,3 +197,320 @@
     text-wrap: balance;
   }
 }
+
+/* Service Cards Styles - Original Design */
+.item--inner {
+  text-align: center;
+  margin-top: 50px;
+  margin-bottom: 80px;
+  padding: 75px 24px 44px;
+  position: relative;
+  z-index: 1;
+}
+
+.item--inner:before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 0 10px rgba(1, 25, 59, 6%);
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  z-index: -1;
+}
+
+.item--overlay {
+  height: 152px;
+  width: 100%;
+  position: absolute;
+  top: -44px;
+  left: 0;
+  z-index: -1;
+  border-radius: 15px 15px 0 0;
+  opacity: 0;
+  background: linear-gradient(to left, #7114ef, #1475f7);
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+}
+
+.item--overlay svg {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 99;
+}
+
+.item--icon {
+  min-width: 76px;
+  width: 76px;
+  height: 76px;
+  line-height: 76px;
+  z-index: 1;
+  display: inline-block;
+  position: absolute;
+  top: -38px;
+  left: 0;
+  right: 0;
+  margin: auto;
+  background: linear-gradient(to left, #7114ef, #1475f7);
+  border-radius: 25px;
+  box-shadow: 0 6px 6px rgba(113, 20, 239, 0.3);
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.item--icon:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to left, #7114ef, #1475f7);
+  border-radius: 25px;
+  box-shadow: 0 6px 6px rgba(113, 20, 239, 0.3);
+  z-index: -1;
+  transform: rotate(45deg);
+}
+
+.item--icon i, .item--icon svg {
+  font-size: 42px;
+  color: #fff;
+}
+
+.item--title {
+  font-size: 20px;
+  color: #101130;
+  padding-bottom: 24px;
+  margin-bottom: 25px;
+  position: relative;
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+}
+
+.item--title:before {
+  content: "";
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  height: 4px;
+  width: 88px;
+  background: linear-gradient(to left, #7114ef, #1475f7);
+  position: absolute;
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+}
+
+.item--description {
+  color: #57586d;
+  text-align: justify;
+  line-height: 1.5;
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+}
+
+.item--readmore {
+  position: absolute;
+  bottom: 11px;
+  left: 0;
+  right: 0;
+  z-index: 99;
+  opacity: 0;
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  visibility: hidden;
+}
+
+.btn-text-gr {
+  color: #7114ef;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.btn-text-gr i, .btn-text-gr svg {
+  margin-left: 6px;
+  font-size: 18px;
+  transition: 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+}
+
+/* Hover Effects */
+.item--inner:hover:before {
+  box-shadow: 0 34px 32px rgba(1, 25, 59, 0.14);
+  border-radius: 8px 60px 8px 8px;
+  height: calc(100% + 44px);
+}
+
+.item--inner:hover .item--overlay {
+  opacity: 1;
+}
+
+.item--inner:hover .item--icon {
+  top: -8px;
+  background: #fff !important;
+}
+
+.item--inner:hover .item--icon i, .item--inner:hover .item--icon svg {
+  color: #7114ef !important;
+}
+
+.item--inner:hover .item--title {
+  transform: translateY(60px);
+}
+
+.item--inner:hover .item--title:before {
+  transform: scaleX(0);
+}
+
+.item--inner:hover .item--description {
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.item--inner:hover .item--readmore {
+  opacity: 1;
+  visibility: visible;
+  bottom: 31px;
+}
+
+/* Steps Section Styles - Original Design */
+.ct-steps-layout1 {
+  max-width: 1000px;
+  margin: auto;
+}
+
+.ct-steps-layout1 .ct--item {
+  margin: 0 -36px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.ct-steps-layout1 .ct--item>div {
+  width: 50%;
+  padding: 0 36px;
+}
+
+.ct-steps-layout1 .ct--holder {
+  position: relative;
+}
+
+.ct-steps-layout1 .ct--holder .ct--holder-inner {
+  padding-left: 110px;
+}
+
+.ct-steps-layout1 .ct--title {
+  margin-bottom: 13px;
+  font-size: 30px;
+  font-weight: 600;
+  color: #101130;
+}
+
+.ct-steps-layout1 .ct--content {
+  color: #555;
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.btn.btn-circle-text {
+  background: 0 0 !important;
+  color: #2e2d2d;
+  font-size: 16px;
+  padding: 0 14px;
+  line-height: 51px;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ct-steps-layout1 .ct--meta .ct--meta-inner {
+  background-color: #f6f8fb;
+  border-radius: 30px;
+  overflow: hidden;
+  display: flex;
+  flex-wrap: nowrap;
+  position: relative;
+}
+
+.ct--meta .ct--number {
+  background: linear-gradient(to left, #7114ef, #1475f7);
+  font-size: 30px;
+  font-weight: 700;
+  font-family: 'Fira Sans', sans-serif;
+  color: #fff;
+  min-width: 110px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.ct--meta .ct--number:before {
+  content: '';
+  border: 60px solid #6a5bfd;
+  width: 238px;
+  height: 238px;
+  position: absolute;
+  top: 45px;
+  right: -28px;
+  border-radius: 100%;
+  z-index: -1;
+  box-shadow: -11px 0 18px rgba(36, 36, 40, .38) inset;
+}
+
+.ct-steps-layout1 .ct--meta .ct--icon {
+  flex-grow: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+.ct--arrow {
+  position: absolute;
+  top: 50%;
+  left: -19px;
+  width: 38px;
+  height: 38px;
+  line-height: 38px;
+  text-align: center;
+  border-radius: 38px;
+  color: #fff;
+  background: linear-gradient(to left, #7114ef, #1475f7);
+  box-shadow: 0 11px 18px rgba(79, 61, 255, .23);
+  font-size: 18px;
+  transform: translate(0, -50%);
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ct-steps-layout1 .ct--meta {
+  position: relative;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .ct-steps-layout1 .ct--item {
+    flex-direction: column;
+    margin: 0;
+  }
+  
+  .ct-steps-layout1 .ct--item>div {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+  
+  .ct-steps-layout1 .ct--holder .ct--holder-inner {
+    padding-left: 0;
+    text-align: center;
+  }
+  
+  .ct--arrow {
+    display: none;
+  }
+}

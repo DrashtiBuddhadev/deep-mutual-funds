@@ -1,0 +1,448 @@
+.service-card {
+    position: relative;
+    text-align: center;
+    margin-top: 50px;
+    margin-bottom: 80px;
+    padding: 75px 24px 44px;
+    z-index: 1;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  .service-card::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 0 10px rgba(1, 25, 59, 0.06);
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+    z-index: -1;
+  }
+
+  .gradient-overlay {
+    background: #115099;
+    height: 152px;
+    width: 100%;
+    position: absolute;
+    top: -44px;
+    left: 0;
+    z-index: -1;
+    border-radius: 15px 15px 0 0;
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  .gradient-overlay svg {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99;
+  }
+
+  .service-icon {
+    min-width: 76px;
+    width: 76px;
+    height: 76px;
+    line-height: 76px;
+    z-index: 1;
+    display: inline-block;
+    position: absolute;
+    top: -38px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  .service-icon::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #115099;
+    border-radius: 25px;
+    box-shadow: 0 6px 6px rgba(17, 80, 153, 0.3);
+    z-index: -1;
+    transform: rotate(45deg);
+  }
+
+  .service-icon span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+  }
+
+  .service-title {
+    font-size: 20px;
+    color: #101130;
+    padding-bottom: 24px;
+    margin-bottom: 25px;
+    position: relative;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  .service-title::before {
+    content: "";
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    height: 4px;
+    width: 88px;
+    background: #115099;
+    position: absolute;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  .service-description {
+    color: #57586d;
+    text-align: justify;
+    line-height: 1.5;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  .read-more-btn {
+    position: absolute;
+    bottom: 11px;
+    left: 0;
+    right: 0;
+    z-index: 99;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s cubic-bezier(0.24, 0.74, 0.58, 1);
+  }
+
+  /* Hover Effects */
+  .service-card:hover::before {
+    box-shadow: 0 34px 32px rgba(1, 25, 59, 0.14);
+    border-radius: 8px 60px 8px 8px;
+    height: calc(100% + 44px);
+  }
+
+  .service-card:hover .gradient-overlay {
+    opacity: 1;
+  }
+
+  .service-card:hover .service-icon {
+    top: -8px;
+  }
+
+  .service-card:hover .service-icon::before {
+    background: #fff !important;
+  }
+
+  .service-card:hover .service-icon span {
+    color: #115099;
+  }
+
+  .service-card:hover .service-title {
+    transform: translateY(60px);
+  }
+
+  .service-card:hover .service-title::before {
+    transform: scaleX(0);
+  }
+
+  .service-card:hover .service-description {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .service-card:hover .read-more-btn {
+    opacity: 1;
+    visibility: visible;
+    bottom: 31px;
+  }
+
+  /* Steps Section */
+  .step-item {
+    margin: 0 -36px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 40px;
+  }
+
+  .step-item > div {
+    width: 50%;
+    padding: 0 36px;
+  }
+
+  .step-content {
+    position: relative;
+  }
+
+  .step-text {
+    padding-left: 110px;
+  }
+
+  .step-title {
+    margin-bottom: 13px;
+    font-size: 30px;
+    color: #101130;
+    font-weight: 600;
+  }
+
+  .step-description {
+    color: #555;
+    margin-bottom: 20px;
+    line-height: 1.6;
+  }
+
+  .step-button {
+    margin-top: 20px;
+  }
+
+  .step-meta-inner {
+    background-color: #f6f8fb;
+    border-radius: 30px;
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    position: relative;
+  }
+
+  .step-number {
+    background-color: #115099;
+    font-size: 30px;
+    font-weight: 700;
+    color: #fff;
+    min-width: 110px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    height: 120px;
+  }
+
+  .step-number::before {
+    content: '';
+    border: 60px solid #115099;
+    width: 238px;
+    height: 238px;
+    position: absolute;
+    top: 45px;
+    right: -28px;
+    border-radius: 100%;
+    z-index: -1;
+    box-shadow: -11px 0 18px rgba(36, 36, 40, 0.38) inset;
+  }
+
+  .step-icon {
+    flex-grow: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 20px;
+  }
+
+  .step-arrow {
+    position: absolute;
+    top: 50%;
+    left: -19px;
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 38px;
+    color: #fff;
+    background-color: #115099;
+    box-shadow: 0 11px 18px rgba(17, 80, 153, 0.23);
+    font-size: 18px;
+    transform: translate(0, -50%);
+    z-index: 100;
+  }
+
+  @media (max-width: 1024px) {
+    .service-card {
+      margin-top: 40px;
+      margin-bottom: 60px;
+      padding: 60px 20px 40px;
+    }
+    
+    .service-icon {
+      width: 70px;
+      height: 70px;
+      line-height: 70px;
+      top: -35px;
+    }
+    
+               .service-icon span {
+       /* SVG icons don't need font-size */
+     }
+    
+    .service-title {
+      font-size: 18px;
+      padding-bottom: 20px;
+      margin-bottom: 20px;
+    }
+    
+    .service-description {
+      font-size: 14px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .service-card {
+      margin-top: 30px;
+      margin-bottom: 50px;
+      padding: 50px 16px 35px;
+    }
+    
+    .service-icon {
+      width: 60px;
+      height: 60px;
+      line-height: 60px;
+      top: -30px;
+    }
+    
+               .service-icon span {
+       /* SVG icons don't need font-size */
+     }
+    
+    .service-title {
+      font-size: 16px;
+      padding-bottom: 16px;
+      margin-bottom: 16px;
+    }
+    
+    .service-description {
+      font-size: 13px;
+      text-align: center;
+    }
+    
+    .gradient-overlay {
+      height: 130px;
+      top: -35px;
+    }
+    
+    .service-card:hover .service-title {
+      transform: translateY(50px);
+    }
+    
+    .step-item {
+      flex-direction: column;
+      margin: 0 0 30px 0;
+    }
+    
+    .step-item > div {
+      width: 100%;
+      padding: 0 20px;
+      margin-bottom: 20px;
+    }
+    
+    .step-text {
+      padding-left: 0;
+      text-align: center;
+    }
+    
+    .step-title {
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+    
+    .step-description {
+      font-size: 14px;
+      margin-bottom: 15px;
+    }
+    
+    .step-meta-inner {
+      border-radius: 20px;
+      max-width: 350px;
+      margin: 0 auto;
+    }
+    
+    .step-number {
+      min-width: 80px;
+      height: 100px;
+      font-size: 24px;
+    }
+    
+    .step-number::before {
+      border: 50px solid #115099;
+      width: 200px;
+      height: 200px;
+      top: 38px;
+      right: -25px;
+    }
+    
+    .step-icon {
+      padding: 30px 15px;
+    }
+    
+    .step-arrow {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .service-card {
+      margin-top: 25px;
+      margin-bottom: 40px;
+      padding: 45px 12px 30px;
+    }
+    
+    .service-icon {
+      width: 55px;
+      height: 55px;
+      line-height: 55px;
+      top: -27px;
+    }
+    
+               .service-icon span {
+       /* SVG icons don't need font-size */
+     }
+    
+    .service-title {
+      font-size: 15px;
+      padding-bottom: 14px;
+      margin-bottom: 14px;
+    }
+    
+    .service-description {
+      font-size: 12px;
+      line-height: 1.4;
+    }
+    
+    .gradient-overlay {
+      height: 120px;
+      top: -32px;
+    }
+    
+    .step-title {
+      font-size: 18px;
+    }
+    
+    .step-description {
+      font-size: 13px;
+    }
+    
+    .step-number {
+      min-width: 70px;
+      height: 90px;
+      font-size: 20px;
+    }
+    
+    .step-number::before {
+      border: 45px solid #115099;
+      width: 180px;
+      height: 180px;
+      top: 32px;
+      right: -22px;
+    }
+    
+    .step-icon {
+      padding: 25px 10px;
+    }
+  }
