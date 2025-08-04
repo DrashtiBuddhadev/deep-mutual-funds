@@ -32,49 +32,49 @@ const FAQ = () => {
   };
 
   return (
-    <section className="py-12 lg:py-16 bg-gray-50">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-8">
-          <h2 className="font-heading font-bold text-2xl lg:text-3xl text-primary mb-3">
-            Frequently Asked Questions
-          </h2>
-          <p className="text-base text-muted-foreground max-w-2xl mx-auto">
-            Get answers to common questions about our wealth management services
-          </p>
-        </div>
-        
-        <div className="max-w-4xl mx-auto space-y-2">
-          {faqs.map((faq, index) => (
-            <div 
-              key={index}
-              className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
-            >
-              <button
-                onClick={() => toggleFAQ(index)}
-                className="w-full text-left p-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
-              >
-                <h3 className="font-semibold text-base text-primary pr-4">
-                  {faq.question}
-                </h3>
-                {openIndex === index ? (
-                  <ChevronUp className="w-4 h-4 text-primary flex-shrink-0" />
-                ) : (
-                  <ChevronDown className="w-4 h-4 text-primary flex-shrink-0" />
-                )}
-              </button>
-              
-              {openIndex === index && (
-                <div className="px-4 pb-4 border-t border-gray-100">
-                  <p className="text-gray-600 leading-relaxed text-sm pt-3">
-                    {faq.answer}
-                  </p>
-                </div>
-              )}
-            </div>
-          ))}
-        </div>
-      </div>
-    </section>
+         <section className="py-8 sm:py-12 lg:py-16 bg-gray-50">
+       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+         <div className="text-center mb-6 sm:mb-8">
+           <h2 className="font-heading font-bold text-xl sm:text-2xl lg:text-3xl text-primary mb-2 sm:mb-3">
+             Frequently Asked Questions
+           </h2>
+           <p className="text-sm sm:text-base text-muted-foreground max-w-2xl mx-auto">
+             Get answers to common questions about our wealth management services
+           </p>
+         </div>
+         
+         <div className="max-w-4xl mx-auto space-y-2">
+           {faqs.map((faq, index) => (
+             <div 
+               key={index}
+               className="bg-white rounded-lg shadow-sm border border-gray-200 overflow-hidden"
+             >
+               <button
+                 onClick={() => toggleFAQ(index)}
+                 className="w-full text-left p-3 sm:p-4 flex items-center justify-between hover:bg-gray-50 transition-colors duration-200"
+               >
+                 <h3 className="font-semibold text-sm sm:text-base text-primary pr-3 sm:pr-4">
+                   {faq.question}
+                 </h3>
+                 {openIndex === index ? (
+                   <ChevronUp className="w-4 h-4 text-primary flex-shrink-0" />
+                 ) : (
+                   <ChevronDown className="w-4 h-4 text-primary flex-shrink-0" />
+                 )}
+               </button>
+               
+               {openIndex === index && (
+                 <div className="px-3 sm:px-4 pb-3 sm:pb-4 border-t border-gray-100">
+                   <p className="text-gray-600 leading-relaxed text-xs sm:text-sm pt-2 sm:pt-3">
+                     {faq.answer}
+                   </p>
+                 </div>
+               )}
+             </div>
+           ))}
+         </div>
+       </div>
+     </section>
   );
 };
 

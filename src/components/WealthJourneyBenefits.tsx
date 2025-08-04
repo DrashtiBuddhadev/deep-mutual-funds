@@ -26,31 +26,31 @@ const WealthJourneyBenefits = () => {
     >
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-white/50"></div>
-      <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Header Section */}
-        <div className="text-center mb-12">
-          <div className="inline-flex items-center px-3 py-1 text-sm font-medium rounded-full mb-4" style={{backgroundColor: '#e3b317', color: '#8b6914'}}>
-            Your Journey
-          </div>
-          <h2 className="font-heading font-bold text-3xl lg:text-4xl text-primary mb-4">
-            Your Wealth Journey, Simplified
-          </h2>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
-            Where are you in your financial journey? We guide you at every step — from building to protecting to passing on your wealth.
-          </p>
-        </div>
+      <div className="relative z-10 container mx-auto px-6 sm:px-6 lg:px-8">
+                 {/* Header Section */}
+         <div className="text-center mb-8 sm:mb-12">
+           <div className="inline-flex items-center px-3 py-1 text-xs sm:text-sm font-medium rounded-full mb-3 sm:mb-4" style={{backgroundColor: '#e3b317', color: '#8b6914'}}>
+             Your Journey
+           </div>
+           <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-primary mb-3 sm:mb-4">
+             Your Wealth Journey, Simplified
+           </h2>
+           <p className="text-sm sm:text-lg text-muted-foreground max-w-3xl mx-auto">
+             Where are you in your financial journey? We guide you at every step — from building to protecting to passing on your wealth.
+           </p>
+         </div>
 
-        {/* Cards Grid */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+         {/* Cards Grid */}
+         <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6 lg:gap-8">
           {/* First Row - 2 Cards */}
           {benefits.slice(0, 2).map((benefit, index) => (
-            <div
-              key={index}
-              className={`relative p-6 rounded-lg shadow-sm border overflow-hidden transition-all duration-500 ease-in-out group ${
-                benefit.isHighlighted 
-                  ? 'bg-green-50 border-green-200' 
-                  : 'bg-white border-gray-200'
-              } hover:shadow-lg hover:scale-[1.02]`}
+                         <div
+               key={index}
+               className={`relative p-4 sm:p-6 rounded-lg shadow-sm border overflow-hidden transition-all duration-500 ease-in-out group ${
+                 benefit.isHighlighted 
+                   ? 'bg-green-50 border-green-200' 
+                   : 'bg-white border-gray-200'
+               } hover:shadow-lg hover:scale-[1.02]`}
               onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
                 const fillElement = e.currentTarget.querySelector('.gold-fill') as HTMLElement;
                 if (fillElement) {
@@ -90,14 +90,14 @@ const WealthJourneyBenefits = () => {
                       style={{color: 'white'}}
                     />
                   </div>
-                  <div className="flex-1">
-                    <h3 className="font-heading font-bold text-xl text-primary mb-2 group-hover:text-white transition-colors duration-300">
-                      {benefit.title}
-                    </h3>
-                    <p className="text-muted-foreground leading-relaxed group-hover:text-white transition-colors duration-300">
-                      {benefit.description}
-                    </p>
-                  </div>
+                                     <div className="flex-1">
+                     <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-2 group-hover:text-white transition-colors duration-300">
+                       {benefit.title}
+                     </h3>
+                     <p className="text-sm sm:text-base text-muted-foreground leading-relaxed group-hover:text-white transition-colors duration-300">
+                       {benefit.description}
+                     </p>
+                   </div>
                 </div>
               </div>
               
@@ -114,10 +114,10 @@ const WealthJourneyBenefits = () => {
           ))}
         </div>
 
-        {/* Second Row - 1 Full Width Card */}
-        <div className="mt-6 lg:mt-8">
-          <div 
-            className="relative p-6 rounded-lg shadow-sm border border-gray-200 bg-white overflow-hidden transition-all duration-500 ease-in-out group hover:shadow-lg hover:scale-[1.02]"
+                 {/* Second Row - 1 Full Width Card */}
+         <div className="mt-4 sm:mt-6 lg:mt-8">
+           <div 
+             className="relative p-4 sm:p-6 rounded-lg shadow-sm border border-gray-200 bg-white overflow-hidden transition-all duration-500 ease-in-out group hover:shadow-lg hover:scale-[1.02]"
             onMouseEnter={(e: React.MouseEvent<HTMLDivElement>) => {
               const fillElement = e.currentTarget.querySelector('.gold-fill') as HTMLElement;
               if (fillElement) {
@@ -157,14 +157,14 @@ const WealthJourneyBenefits = () => {
                     style={{color: 'white'}}
                   />
                 </div>
-                <div className="flex-1">
-                  <h3 className="font-heading font-bold text-xl text-primary mb-2 group-hover:text-white transition-colors duration-300">
-                    {benefits[2].title}
-                  </h3>
-                  <p className="text-muted-foreground leading-relaxed group-hover:text-white transition-colors duration-300">
-                    {benefits[2].description}
-                  </p>
-                </div>
+                                 <div className="flex-1">
+                   <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-2 group-hover:text-white transition-colors duration-300">
+                     {benefits[2].title}
+                   </h3>
+                   <p className="text-sm sm:text-base text-muted-foreground leading-relaxed group-hover:text-white transition-colors duration-300">
+                     {benefits[2].description}
+                   </p>
+                 </div>
               </div>
             </div>
             

@@ -122,10 +122,32 @@
   body {
     @apply bg-background text-foreground font-base;
     font-family: var(--font-family-base);
+    overflow-x: hidden; /* Prevent horizontal scroll */
   }
 
   h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-family-heading);
+  }
+
+  /* Ensure containers don't overflow */
+  .container {
+    max-width: 100%;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  /* Responsive text sizing */
+  @media (max-width: 640px) {
+    .text-responsive {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+    }
+  }
+
+  /* Prevent horizontal scroll on mobile */
+  html, body {
+    overflow-x: hidden;
+    width: 100%;
   }
 }
 
