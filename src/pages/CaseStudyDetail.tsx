@@ -14,8 +14,8 @@ const CaseStudyDetail = () => {
       title: "Securing a Family Estate from Legal Disputes",
       client: "Entrepreneur, Age 52 | Industry: Manufacturing",
       cardDescription: "How we helped protect substantial wealth across fixed assets and properties from legal disputes and business liabilities through strategic estate planning.",
-      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&h=400&fit=crop&crop=faces",
-      image2: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop&crop=faces",
+      image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=500&h=400&fit=crop&crop=faces",
+      image2: "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?w=500&h=400&fit=crop&crop=faces",
       challenge: "The client had substantial wealth across fixed assets and properties but no structured estate plan. There were risks of disputes among heirs and exposure to business liabilities.",
       solution: "Created a non-attachable family trust, transferred assets into legally protected structures, and coordinated with tax and legal advisors for compliance.",
       results: [
@@ -31,11 +31,11 @@ const CaseStudyDetail = () => {
     },
     {
       id: "partner-exit",
-      title: "Partner Exit Without the Drama",
+      title: "Partner Exit Without Drama",
       client: "Co-Founders of a Tech Startup | Age: 29 & 31",
       cardDescription: "Strategic Buy-Sell Agreement design that enabled smooth founder exit without legal tension or financial disruption to the startup operations.",
-      image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&h=400&fit=crop&crop=faces",
-      image2: "https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=500&h=400&fit=crop&crop=faces",
+      image: "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&h=400&fit=crop&crop=faces",
+      image2: "https://images.unsplash.com/photo-1553877522-43269d4ea984?w=500&h=400&fit=crop&crop=faces",
       challenge: "One founder wanted to exit due to relocation, but no agreement existed. There was confusion, legal tension, and risk of financial disruption.",
       solution: "Designed a Buy–Sell Agreement with valuation aligned with mutual expectations and funded with insurance to avoid capital stress.",
       results: [
@@ -51,11 +51,11 @@ const CaseStudyDetail = () => {
     },
     {
       id: "retirement-corpus",
-      title: "Building a ₹2 Cr Retirement Corpus via SIPs",
+      title: "Building ₹2 Cr Retirement Corpus",
       client: "Working Couple | Age 38 & 41",
       cardDescription: "Systematic Investment Plan strategy that transformed scattered investments into a disciplined approach targeting ₹2+ Cr retirement corpus.",
-      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=400&fit=crop&crop=faces",
-      image2: "https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=500&h=400&fit=crop&crop=faces",
+      image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=500&h=400&fit=crop&crop=faces",
+      image2: "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&h=400&fit=crop&crop=faces",
       challenge: "No structured long-term savings, scattered insurance and investments with no clear retirement plan.",
       solution: "Created goal-linked SIP strategy, reviewed insurance and removed duplication, set up automatic investment roadmap till age 60.",
       results: [
@@ -71,11 +71,11 @@ const CaseStudyDetail = () => {
     },
     {
       id: "pms-portfolio",
-      title: "Transition to PMS for Higher Returns",
+      title: "Portfolio Management Services Success",
       client: "Business Consultant | HNI",
       cardDescription: "Professional Portfolio Management Services delivering higher returns with reduced volatility through expert market analysis and quarterly reviews.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop&crop=faces",
-      image2: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=500&h=400&fit=crop&crop=faces",
+      image: "https://images.unsplash.com/photo-1560472354-b33ff0c44a43?w=500&h=400&fit=crop&crop=faces",
+      image2: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop&crop=faces",
       challenge: "High net worth individual needed professional portfolio management with better returns and reduced volatility while maintaining liquidity.",
       solution: "Implemented PMS with balanced equity and debt allocation based on goals and risk tolerance, set up quarterly performance reviews.",
       results: [
@@ -134,17 +134,17 @@ const CaseStudyDetail = () => {
       {/* Case Study Content */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             {/* Images */}
-            <div className="space-y-4 sm:space-y-6 order-2 lg:order-1">
-              <div className="relative h-48 sm:h-64 lg:h-80 rounded-lg overflow-hidden shadow-lg">
+            <div className="space-y-6">
+              <div className="relative h-120 rounded-lg overflow-hidden shadow-lg">
                 <img 
                   src={study.image} 
                   alt={study.title}
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="relative h-48 sm:h-64 lg:h-80 rounded-lg overflow-hidden shadow-lg">
+              <div className="relative h-96 rounded-lg overflow-hidden shadow-lg">
                 <img 
                   src={study.image2} 
                   alt={`${study.title} - Additional`}
@@ -154,77 +154,77 @@ const CaseStudyDetail = () => {
             </div>
 
             {/* Content */}
-            <div className="space-y-6 sm:space-y-8 order-1 lg:order-2">
+            <div className="space-y-8">
               <div>
-                <h2 className="font-heading font-bold text-2xl sm:text-3xl text-primary mb-4">
+                <h2 className="font-heading font-bold text-3xl text-primary mb-4">
                   Overview
                 </h2>
-                <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                <p className="text-lg text-muted-foreground leading-relaxed">
                   {study.cardDescription}
                 </p>
               </div>
 
-              <div className="flex flex-col sm:flex-row gap-3 sm:gap-4">
-                <div className="bg-surface rounded-lg px-4 py-3 sm:px-6 sm:py-4 flex items-center flex-1">
-                  <Clock className="w-4 h-4 sm:w-5 sm:h-5 text-accent mr-3 flex-shrink-0" />
+              <div className="flex flex-wrap gap-4">
+                <div className="bg-surface rounded-lg px-6 py-4 flex items-center">
+                  <Clock className="w-5 h-5 text-accent mr-3" />
                   <div>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Timeframe</p>
-                    <p className="font-semibold text-sm sm:text-base text-primary">{study.timeframe}</p>
+                    <p className="text-sm text-muted-foreground">Timeframe</p>
+                    <p className="font-semibold text-primary">{study.timeframe}</p>
                   </div>
                 </div>
-                <div className="bg-surface rounded-lg px-4 py-3 sm:px-6 sm:py-4 flex items-center flex-1">
-                  <DollarSign className="w-4 h-4 sm:w-5 sm:h-5 text-accent mr-3 flex-shrink-0" />
+                <div className="bg-surface rounded-lg px-6 py-4 flex items-center">
+                  <DollarSign className="w-5 h-5 text-accent mr-3" />
                   <div>
-                    <p className="text-xs sm:text-sm text-muted-foreground">Service Type</p>
-                    <p className="font-semibold text-sm sm:text-base text-primary">{study.investment}</p>
+                    <p className="text-sm text-muted-foreground">Service Type</p>
+                    <p className="font-semibold text-primary">{study.investment}</p>
                   </div>
                 </div>
               </div>
 
               {/* Challenge */}
               <div>
-                <h3 className="font-semibold text-lg sm:text-xl text-primary mb-3 sm:mb-4 flex items-center">
-                  <Target className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-accent flex-shrink-0" />
+                <h3 className="font-semibold text-xl text-primary mb-4 flex items-center">
+                  <Target className="w-6 h-6 mr-3 text-accent" />
                   The Challenge
                 </h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {study.challenge}
                 </p>
               </div>
 
               {/* Solution */}
               <div>
-                <h3 className="font-semibold text-lg sm:text-xl text-primary mb-3 sm:mb-4 flex items-center">
-                  <Users className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-accent flex-shrink-0" />
+                <h3 className="font-semibold text-xl text-primary mb-4 flex items-center">
+                  <Users className="w-6 h-6 mr-3 text-accent" />
                   Our Solution
                 </h3>
-                <p className="text-sm sm:text-base text-muted-foreground leading-relaxed">
+                <p className="text-muted-foreground leading-relaxed">
                   {study.solution}
                 </p>
               </div>
 
               {/* Results */}
               <div>
-                <h3 className="font-semibold text-lg sm:text-xl text-primary mb-3 sm:mb-4 flex items-center">
-                  <CheckCircle className="w-5 h-5 sm:w-6 sm:h-6 mr-2 sm:mr-3 text-accent flex-shrink-0" />
+                <h3 className="font-semibold text-xl text-primary mb-4 flex items-center">
+                  <CheckCircle className="w-6 h-6 mr-3 text-accent" />
                   Results Achieved
                 </h3>
-                <ul className="space-y-2 sm:space-y-3">
+                <ul className="space-y-3">
                   {study.results.map((result, index) => (
                     <li key={index} className="flex items-start space-x-3">
                       <div className="w-2 h-2 bg-accent rounded-full mt-2 flex-shrink-0"></div>
-                      <span className="text-sm sm:text-base text-muted-foreground">{result}</span>
+                      <span className="text-muted-foreground">{result}</span>
                     </li>
                   ))}
                 </ul>
               </div>
 
               {/* Testimonial */}
-              <div className="bg-accent/10 rounded-lg p-4 sm:p-6 lg:p-8 border-l-4 border-accent">
-                <blockquote className="text-base sm:text-lg lg:text-xl text-primary font-medium italic mb-3 sm:mb-4">
+              <div className="bg-accent/10 rounded-lg p-8 border-l-4 border-accent">
+                <blockquote className="text-xl text-primary font-medium italic mb-4">
                   "{study.testimonial}"
                 </blockquote>
-                <p className="font-semibold text-sm sm:text-base text-accent">
+                <p className="font-semibold text-accent">
                   — {study.clientName}
                 </p>
               </div>
