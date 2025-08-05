@@ -1,7 +1,7 @@
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import { Button } from '@/components/ui/button';
-import { Award, Users, Shield, Star, Eye, Heart, TrendingUp, Building } from 'lucide-react';
+import { Shield, Star, Eye, Heart, TrendingUp, Building } from 'lucide-react';
 
 const About = () => {
   const team = [
@@ -107,13 +107,13 @@ const About = () => {
                 key={index} 
                 className="relative p-6 rounded-lg shadow-sm border border-gray-200 bg-white overflow-hidden transition-all duration-500 ease-in-out group hover:shadow-lg hover:scale-[1.02] text-center"
                 onMouseEnter={(e) => {
-                  const fillElement = e.currentTarget.querySelector('.gold-fill');
+                  const fillElement = e.currentTarget.querySelector('.gold-fill') as HTMLElement;
                   if (fillElement) {
                     fillElement.style.clipPath = 'polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%)';
                   }
                 }}
                 onMouseLeave={(e) => {
-                  const fillElement = e.currentTarget.querySelector('.gold-fill');
+                  const fillElement = e.currentTarget.querySelector('.gold-fill') as HTMLElement;
                   if (fillElement) {
                     fillElement.style.clipPath = 'polygon(100% 100%, 100% 100%, 100% 100%, 100% 100%)';
                   }
@@ -225,22 +225,22 @@ const About = () => {
                     overflow: 'hidden'
                   }}
                   onMouseEnter={(e) => {
-                    const element = e.currentTarget;
+                    const element = e.currentTarget as HTMLElement;
                     element.style.backgroundImage = `url('/images/service-bg.jpg')`;
                     element.style.backgroundSize = 'cover';
                     element.style.backgroundPosition = 'center center';
                     element.style.backgroundAttachment = 'local';
                     
-                    const overlay = element.querySelector('.hover-overlay');
+                    const overlay = element.querySelector('.hover-overlay') as HTMLElement;
                     if (overlay) {
                       overlay.style.opacity = '1';
                     }
                   }}
                   onMouseLeave={(e) => {
-                    const element = e.currentTarget;
+                    const element = e.currentTarget as HTMLElement;
                     element.style.backgroundImage = 'none';
                     
-                    const overlay = element.querySelector('.hover-overlay');
+                    const overlay = element.querySelector('.hover-overlay') as HTMLElement;
                     if (overlay) {
                       overlay.style.opacity = '0';
                     }
