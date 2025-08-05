@@ -1,4 +1,6 @@
 import React from 'react';
+import Layout from '@/components/Layout';
+import Hero from '@/components/Hero';
 import './services.css';
 
 const Services = () => {
@@ -123,121 +125,130 @@ const Services = () => {
   ];
 
   return (
-    <div className="min-h-screen" style={{
-      backgroundImage: `linear-gradient(
-        135deg,
-        rgba(244, 244, 244, 0.07) 0%,
-        rgba(244, 244, 244, 0.07) 12.5%,
-        rgba(211, 211, 211, 0.07) 12.5%,
-        rgba(211, 211, 211, 0.07) 25%,
-        rgba(178, 178, 178, 0.07) 25%,
-        rgba(178, 178, 178, 0.07) 37.5%,
-        rgba(145, 145, 145, 0.07) 37.5%,
-        rgba(145, 145, 145, 0.07) 50%,
-        rgba(113, 113, 113, 0.07) 50%,
-        rgba(113, 113, 113, 0.07) 62.5%,
-        rgba(80, 80, 80, 0.07) 62.5%,
-        rgba(80, 80, 80, 0.07) 75%,
-        rgba(47, 47, 47, 0.07) 75%,
-        rgba(47, 47, 47, 0.07) 87.5%,
-        rgba(14, 14, 14, 0.07) 87.5%,
-        rgba(14, 14, 14, 0.07) 100%
-      ),
-      linear-gradient(
-        45deg,
-        rgba(236, 236, 236, 0.07) 0%,
-        rgba(236, 236, 236, 0.07) 12.5%,
-        rgba(210, 210, 210, 0.07) 12.5%,
-        rgba(210, 210, 210, 0.07) 25%,
-        rgba(183, 183, 183, 0.07) 25%,
-        rgba(183, 183, 183, 0.07) 37.5%,
-        rgba(157, 157, 157, 0.07) 37.5%,
-        rgba(157, 157, 157, 0.07) 50%,
-        rgba(130, 130, 130, 0.07) 50%,
-        rgba(130, 130, 130, 0.07) 62.5%,
-        rgba(104, 104, 104, 0.07) 62.5%,
-        rgba(104, 104, 104, 0.07) 75%,
-        rgba(77, 77, 77, 0.07) 75%,
-        rgba(77, 77, 77, 0.07) 87.5%,
-        rgba(51, 51, 51, 0.07) 87.5%,
-        rgba(51, 51, 51, 0.07) 100%
-      ),
-      linear-gradient(90deg, #ffffff, #ffffff)`
-    }}>
-      {/* Services Grid */}
-      <div className="container mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => (
-            <div key={index} className="service-card group">
-              {/* Gradient Overlay */}
-              <div className="gradient-overlay">
-                <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" version="1.1" preserveAspectRatio="none" height="32px" className="fill-white">
-                  <path strokeWidth="0" d="M0 0 C50 100 50 100 100 0  L100 100 0 100"></path>
-                </svg>
-              </div>
+    <Layout>
+      <Hero 
+        title="Our Services"
+        subtitle="We offer complete financial solutions from investments to succession planning, all tailored for individuals, professionals and business owners."
+        showCTA={false}
+        className="hero-no-circular"
+      />
 
-              {/* Service Icon */}
-              <div className="service-icon">
-                <span>{service.icon}</span>
-              </div>
-
-              {/* Service Content */}
-              <div className="service-content">
-                <h3 className="service-title">{service.title}</h3>
-                <p className="service-description">{service.description}</p>
-                
-                {/* Read More Button */}
-                <div className="read-more-btn">
-                  <button className="text-white hover:text-gray-200 transition-colors duration-300 flex items-center">
-                    Learn More
-                    <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+      <div className="min-h-screen" style={{
+        backgroundImage: `linear-gradient(
+          135deg,
+          rgba(244, 244, 244, 0.07) 0%,
+          rgba(244, 244, 244, 0.07) 12.5%,
+          rgba(211, 211, 211, 0.07) 12.5%,
+          rgba(211, 211, 211, 0.07) 25%,
+          rgba(178, 178, 178, 0.07) 25%,
+          rgba(178, 178, 178, 0.07) 37.5%,
+          rgba(145, 145, 145, 0.07) 37.5%,
+          rgba(145, 145, 145, 0.07) 50%,
+          rgba(113, 113, 113, 0.07) 50%,
+          rgba(113, 113, 113, 0.07) 62.5%,
+          rgba(80, 80, 80, 0.07) 62.5%,
+          rgba(80, 80, 80, 0.07) 75%,
+          rgba(47, 47, 47, 0.07) 75%,
+          rgba(47, 47, 47, 0.07) 87.5%,
+          rgba(14, 14, 14, 0.07) 87.5%,
+          rgba(14, 14, 14, 0.07) 100%
+        ),
+        linear-gradient(
+          45deg,
+          rgba(236, 236, 236, 0.07) 0%,
+          rgba(236, 236, 236, 0.07) 12.5%,
+          rgba(210, 210, 210, 0.07) 12.5%,
+          rgba(210, 210, 210, 0.07) 25%,
+          rgba(183, 183, 183, 0.07) 25%,
+          rgba(183, 183, 183, 0.07) 37.5%,
+          rgba(157, 157, 157, 0.07) 37.5%,
+          rgba(157, 157, 157, 0.07) 50%,
+          rgba(130, 130, 130, 0.07) 50%,
+          rgba(130, 130, 130, 0.07) 62.5%,
+          rgba(104, 104, 104, 0.07) 62.5%,
+          rgba(104, 104, 104, 0.07) 75%,
+          rgba(77, 77, 77, 0.07) 75%,
+          rgba(77, 77, 77, 0.07) 87.5%,
+          rgba(51, 51, 51, 0.07) 87.5%,
+          rgba(51, 51, 51, 0.07) 100%
+        ),
+        linear-gradient(90deg, #ffffff, #ffffff)`
+      }}>
+        {/* Services Grid */}
+        <div className="container mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map((service, index) => (
+              <div key={index} className="service-card group">
+                {/* Gradient Overlay */}
+                <div className="gradient-overlay">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="100%" viewBox="0 0 100 100" version="1.1" preserveAspectRatio="none" height="32px" className="fill-white">
+                    <path strokeWidth="0" d="M0 0 C50 100 50 100 100 0  L100 100 0 100"></path>
+                  </svg>
                 </div>
-              </div>
-            </div>
-          ))}
-        </div>
 
-        {/* Steps Section */}
-        <div className="mt-20">
-          <div className="max-w-6xl mx-auto">
-            {steps.map((step, index) => (
-              <div key={index} className="step-item">
-                <div className="step-content">
-                  <div className="step-text">
-                    <h5 className="step-title">{step.title}</h5>
-                    <div className="step-description">{step.content}</div>
-                    <div className="step-button">
-                      <button className="bg-transparent border-2 border-gray-400 text-gray-700 px-6 py-3 rounded-full hover:bg-[#115099] hover:text-white hover:border-[#115099] transition-all duration-300">
-                        {step.buttonText}
-                      </button>
-                    </div>
-                  </div>
+                {/* Service Icon */}
+                <div className="service-icon">
+                  <span>{service.icon}</span>
                 </div>
-                
-                <div className="step-meta">
-                  <div className="step-meta-inner">
-                    <div className="step-number">{step.number}</div>
-                    <div className="step-icon">
-                      {step.icon}
-                    </div>
-                    {index < steps.length - 1 && (
-                      <div className="step-arrow">
-                        <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
-                        </svg>
-                      </div>
-                    )}
+
+                {/* Service Content */}
+                <div className="service-content">
+                  <h3 className="service-title">{service.title}</h3>
+                  <p className="service-description">{service.description}</p>
+                  
+                  {/* Read More Button */}
+                  <div className="read-more-btn">
+                    <button className="text-white hover:text-gray-200 transition-colors duration-300 flex items-center">
+                      Learn More
+                      <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                      </svg>
+                    </button>
                   </div>
                 </div>
               </div>
             ))}
           </div>
+
+          {/* Steps Section */}
+          <div className="mt-20">
+            <div className="max-w-6xl mx-auto">
+              {steps.map((step, index) => (
+                <div key={index} className="step-item">
+                  <div className="step-content">
+                    <div className="step-text">
+                      <h5 className="step-title">{step.title}</h5>
+                      <div className="step-description">{step.content}</div>
+                      <div className="step-button">
+                        <button className="bg-transparent border-2 border-gray-400 text-gray-700 px-6 py-3 rounded-full hover:bg-[#115099] hover:text-white hover:border-[#115099] transition-all duration-300">
+                          {step.buttonText}
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="step-meta">
+                    <div className="step-meta-inner">
+                      <div className="step-number">{step.number}</div>
+                      <div className="step-icon">
+                        {step.icon}
+                      </div>
+                      {index < steps.length - 1 && (
+                        <div className="step-arrow">
+                          <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7"/>
+                          </svg>
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   );
 };
 

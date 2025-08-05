@@ -23,7 +23,7 @@
   }
 
   .gradient-overlay {
-    background: #115099;
+    background: #e3b317;
     height: 152px;
     width: 100%;
     position: absolute;
@@ -140,7 +140,7 @@
   }
 
   .service-card:hover .service-icon span {
-    color: #115099;
+    color: #e3b317;
   }
 
   .service-card:hover .service-title {
@@ -445,4 +445,32 @@
     .step-icon {
       padding: 25px 10px;
     }
+  }
+
+  /* Hide circular part in hero */
+  .hero-no-circular .order-2 {
+    display: none !important;
+  }
+
+  /* Reduce hero height and center content */
+  .hero-no-circular {
+    min-height: 60vh !important;
+  }
+
+  .hero-no-circular .container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 60vh;
+  }
+
+  .hero-no-circular .grid {
+    justify-content: center;
+    grid-template-columns: 1fr !important;
+  }
+
+  .hero-no-circular .order-1 {
+    text-align: center !important;
+    max-width: 800px;
+    margin: 0 auto;
   }
