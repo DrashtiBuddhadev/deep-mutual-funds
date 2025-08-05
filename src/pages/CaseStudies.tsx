@@ -1,76 +1,106 @@
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import { Button } from '@/components/ui/button';
-import { TrendingUp, Target, CheckCircle, Users } from 'lucide-react';
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+import advisorImage from '@/assets/advisor-working.jpg';
 
 const CaseStudies = () => {
+  const navigate = useNavigate();
+  
   const caseStudies = [
     {
-      title: "Family Business Wealth Restructuring",
-      client: "Manufacturing Family in Surat",
-      challenge: "₹50 Cr family business with unstructured investments and high tax liability. Multiple family members with conflicting financial goals and no succession plan.",
-      solution: "Created a comprehensive family trust structure, implemented tax-efficient investment strategies, and developed a clear succession plan with buy-sell agreements.",
+      id: "estate-protection",
+      title: "Securing a Family Estate from Legal Disputes",
+      client: "Entrepreneur, Age 52 | Industry: Manufacturing",
+      cardDescription: "Strategic estate planning that protected substantial wealth from legal disputes and business liabilities through non-attachable family trust structures.",
+      hoverDescription: "How we helped protect substantial wealth across fixed assets and properties from legal disputes and business liabilities through strategic estate planning.",
+      image: "https://images.unsplash.com/photo-1450101499163-c8848c66ca85?w=500&h=400&fit=crop&crop=faces", // Estate planning documents
+      challenge: "The client had substantial wealth across fixed assets and properties but no structured estate plan. There were risks of disputes among heirs and exposure to business liabilities.",
+      solution: "Created a non-attachable family trust, transferred assets into legally protected structures, and coordinated with tax and legal advisors for compliance.",
       results: [
-        "Reduced tax liability by 35% through restructuring",
-        "Established clear succession framework for next generation",
-        "Diversified portfolio generating 12% annual returns",
-        "Protected family assets through non-attachable trust structure"
+        "The family now has a private, tax-efficient structure for generational wealth",
+        "Zero exposure to external claims",
+        "Protected children's future inheritance",
+        "Eliminated risk of family disputes"
       ],
+      testimonial: "We had no idea how exposed we were. Deep Investment helped us lock down our assets, avoid conflict, and protect our children's future.",
+      clientName: "Rakesh M., Business Owner",
       timeframe: "18 months",
-      investment: "₹50 Cr restructured"
+      investment: "Estate Protection"
     },
     {
-      title: "Young Professional Wealth Building",
-      client: "IT Professional Couple in Bangalore",
-      challenge: "High earning couple (₹25 LPA combined) with no systematic investment plan. Wanted to buy a home, plan for children's education, and build retirement corpus.",
-      solution: "Designed goal-based SIP portfolio with different asset allocations for short, medium, and long-term goals. Optimized insurance coverage and tax planning.",
+      id: "partner-exit",
+      title: "Partner Exit Without the Drama",
+      client: "Co-Founders of a Tech Startup | Age: 29 & 31",
+      cardDescription: "Strategic Buy-Sell Agreement design that enabled smooth founder exit without legal tension or financial disruption to startup operations.",
+      hoverDescription: "Comprehensive partnership restructuring that prevented legal disputes and ensured business continuity during founder transition.",
+      image: "https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?w=500&h=400&fit=crop&crop=faces", // Business partnership discussion
+      challenge: "One founder wanted to exit due to relocation, but no agreement existed. There was confusion, legal tension, and risk of financial disruption.",
+      solution: "Designed a Buy–Sell Agreement with valuation aligned with mutual expectations and funded with insurance to avoid capital stress.",
       results: [
-        "Achieved home down payment goal in 3 years",
-        "Built ₹15 lakh education corpus for children",
-        "On track for ₹5 Cr retirement corpus by age 60",
-        "Saved ₹1.5 lakh annually in taxes through planning"
+        "The exit was smooth and relationships intact",
+        "Operations remained uninterrupted",
+        "Clear legal framework established",
+        "Financial strain avoided through insurance funding"
       ],
-      timeframe: "5 years",
-      investment: "₹40,000 monthly SIPs"
+      testimonial: "Their team helped us avoid legal mess and financial strain. We got clarity, structure, and peace of mind.",
+      clientName: "Nidhi & Vivek, Startup Co-founders",
+      timeframe: "6 months",
+      investment: "Buy-Sell Structure"
     },
     {
-      title: "Retirement Portfolio Optimization",
-      client: "Senior Executive Nearing Retirement",
-      challenge: "55-year-old executive with ₹1.5 Cr accumulated wealth but poor asset allocation. Needed income generation for retirement while preserving capital.",
-      solution: "Restructured portfolio with balanced debt-equity allocation, created systematic withdrawal plan, and established healthcare contingency fund.",
+      id: "retirement-corpus",
+      title: "Building a ₹2 Cr Retirement Corpus via SIPs",
+      client: "Working Couple | Age 38 & 41",
+      cardDescription: "Systematic Investment Plan strategy that transformed scattered investments into a disciplined approach targeting ₹2+ Cr retirement corpus.",
+      hoverDescription: "Comprehensive financial planning that created automated investment discipline and streamlined insurance for long-term wealth building.",
+      image: "https://images.unsplash.com/photo-1554224155-6726b3ff858f?w=500&h=400&fit=crop&crop=faces", // SIP investment growth chart
+      challenge: "No structured long-term savings, scattered insurance and investments with no clear retirement plan.",
+      solution: "Created goal-linked SIP strategy, reviewed insurance and removed duplication, set up automatic investment roadmap till age 60.",
       results: [
-        "Generated ₹12 lakh annual retirement income",
-        "Preserved capital with inflation-beating returns",
-        "Created ₹20 lakh healthcare emergency fund",
-        "Optimized tax efficiency in retirement phase"
+        "Projected retirement corpus of ₹2.1 Cr",
+        "Streamlined insurance coverage",
+        "Annual reviews for course correction",
+        "Automated investment discipline"
       ],
-      timeframe: "12 months",
-      investment: "₹1.5 Cr restructured"
+      testimonial: "We now feel totally in control of our financial future. The SIP strategy is working perfectly.",
+      clientName: "Anonymous Client",
+      timeframe: "22 years (ongoing)",
+      investment: "Monthly SIP Plan"
     },
     {
-      title: "Multi-Generational Wealth Transfer",
-      client: "Traditional Business Family in Bharuch",
-      challenge: "Third-generation family business with complex ownership structure. Needed to plan for wealth transfer while minimizing tax impact and family disputes.",
-      solution: "Implemented comprehensive estate planning with family trust, drafted clear wills, and created buy-sell agreements. Established family constitution for governance.",
+      id: "pms-portfolio",
+      title: "Transition to PMS for Higher Returns",
+      client: "Business Consultant | HNI",
+      cardDescription: "Professional Portfolio Management Services delivering higher returns with reduced volatility through expert market analysis and quarterly reviews.",
+      hoverDescription: "Advanced portfolio optimization that eliminated market timing stress while achieving superior risk-adjusted returns for high net worth individual.",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=400&fit=crop&crop=faces", // Portfolio management charts
+      challenge: "High net worth individual needed professional portfolio management with better returns and reduced volatility while maintaining liquidity.",
+      solution: "Implemented PMS with balanced equity and debt allocation based on goals and risk tolerance, set up quarterly performance reviews.",
       results: [
-        "Seamless wealth transfer to fourth generation",
-        "Minimized estate tax liability by 60%",
-        "Prevented family disputes through clear agreements",
-        "Maintained business continuity across generations"
+        "Higher returns with reduced volatility",
+        "Professional portfolio management",
+        "Clear quarterly reporting",
+        "Expert market timing and strategy"
       ],
-      timeframe: "24 months", 
-      investment: "₹80 Cr family wealth"
+      testimonial: "With PMS, I've seen better returns and I don't stress about market timing anymore. I get clear reports, expert logic, and peace of mind.",
+      clientName: "Mahesh J., Business Consultant",
+      timeframe: "Ongoing",
+      investment: "PMS Portfolio"
     }
   ];
 
   return (
     <Layout>
       <Hero 
-        title="Our Success Stories"
-        subtitle="Real Results for Real People"
+        title="Case Studies & Client Stories"
+        subtitle="Real Results for Real People - See how we've helped families and businesses achieve their financial goals through personalized strategies."
         showCTA={false}
+        className="hero-no-circular"
       />
 
+      {/* Case Studies Grid */}
       <section className="py-16 lg:py-24 bg-background">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
@@ -83,79 +113,44 @@ const CaseStudies = () => {
             </p>
           </div>
 
-          <div className="space-y-16">
+          <div className="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {caseStudies.map((study, index) => (
               <div 
-                key={index}
-                className={`grid grid-cols-1 lg:grid-cols-2 gap-12 items-start ${
-                  index % 2 !== 0 ? 'lg:grid-flow-col-dense' : ''
-                }`}
+                key={study.id}
+                className="relative h-80 sm:h-96 rounded-lg overflow-hidden shadow-lg group cursor-pointer"
+                onClick={() => navigate(`/case-study/${study.id}`)}
               >
-                {/* Content */}
-                <div className={`space-y-6 ${index % 2 !== 0 ? 'lg:col-start-2' : ''}`}>
-                  <div>
-                    <h3 className="font-heading font-bold text-2xl lg:text-3xl text-primary mb-2">
+                {/* Background Image */}
+                <div 
+                  className="absolute inset-0 bg-cover bg-center transition-transform duration-300 group-hover:scale-105"
+                  style={{
+                    backgroundImage: `url('${study.image}')`
+                  }}
+                />
+                
+                {/* Default Content - Always Visible */}
+                <div className="absolute bottom-0 left-0 right-0 bg-white p-4 sm:p-6 group-hover:opacity-0 transition-opacity duration-300">
+                  <h3 className="font-heading font-bold text-lg sm:text-xl text-primary mb-2 line-clamp-2">
+                    {study.title}
+                  </h3>
+                  <p className="text-muted-foreground text-xs sm:text-sm leading-relaxed line-clamp-3">
+                    {study.cardDescription}
+                  </p>
+                </div>
+                
+                {/* Hover Overlay - Only on Hover */}
+                <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-center items-center text-white p-6 sm:p-8">
+                  <div className="text-center space-y-3 sm:space-y-4">
+                    <h3 className="font-heading font-bold text-xl sm:text-2xl line-clamp-2">
                       {study.title}
                     </h3>
-                    <p className="font-semibold text-lg text-accent mb-4">
-                      {study.client}
+                    <p className="text-white/90 leading-relaxed text-sm sm:text-base line-clamp-4">
+                      {study.hoverDescription}
                     </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2 flex items-center">
-                      <Target className="w-5 h-5 mr-2 text-accent" />
-                      Challenge
-                    </h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {study.challenge}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-primary mb-2 flex items-center">
-                      <Users className="w-5 h-5 mr-2 text-accent" />
-                      Our Solution
-                    </h4>
-                    <p className="text-muted-foreground leading-relaxed">
-                      {study.solution}
-                    </p>
-                  </div>
-
-                  <div>
-                    <h4 className="font-semibold text-primary mb-3 flex items-center">
-                      <CheckCircle className="w-5 h-5 mr-2 text-accent" />
-                      Results Achieved
-                    </h4>
-                    <ul className="space-y-2">
-                      {study.results.map((result, resultIndex) => (
-                        <li key={resultIndex} className="flex items-start space-x-3">
-                          <div className="w-2 h-2 bg-accent rounded-full mt-2"></div>
-                          <span className="text-muted-foreground">{result}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  <div className="flex flex-wrap gap-4 pt-4">
-                    <div className="bg-surface rounded-lg px-4 py-2">
-                      <p className="text-sm text-muted-foreground">Timeframe</p>
-                      <p className="font-semibold text-primary">{study.timeframe}</p>
-                    </div>
-                    <div className="bg-surface rounded-lg px-4 py-2">
-                      <p className="text-sm text-muted-foreground">Investment</p>
-                      <p className="font-semibold text-primary">{study.investment}</p>
-                    </div>
-                  </div>
-                </div>
-
-                {/* Visual */}
-                <div className={`surface-card ${index % 2 !== 0 ? 'lg:col-start-1 lg:row-start-1' : ''}`}>
-                  <div className="h-80 bg-surface rounded-lg flex items-center justify-center">
-                    <div className="text-center">
-                      <TrendingUp className="w-24 h-24 text-accent/30 mx-auto mb-4" />
-                      <p className="text-muted-foreground font-medium">{study.title}</p>
-                      <p className="text-sm text-muted-foreground mt-2">{study.client}</p>
+                    
+                    <div className="flex items-center justify-center text-accent font-semibold text-base sm:text-lg mt-4 sm:mt-6">
+                      LEARN MORE
+                      <ArrowRight className="w-4 h-4 sm:w-5 sm:h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                     </div>
                   </div>
                 </div>
@@ -201,17 +196,108 @@ const CaseStudies = () => {
       </section>
 
       {/* CTA */}
-      <section className="py-16 lg:py-24 bg-background text-center">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <h2 className="font-heading font-bold text-3xl lg:text-4xl text-primary mb-6">
-            Ready to Write Your Success Story?
-          </h2>
-          <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
-            Join hundreds of satisfied clients who have achieved their financial goals with our proven strategies.
-          </p>
-          <Button className="btn-hero text-lg">
-            Book Your Free Consultation
-          </Button>
+      <section 
+        className="py-16 lg:py-24 relative"
+        style={{
+          backgroundImage: "url('/images/bg-option2.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-white/30"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+            <div className="space-y-4 sm:space-y-6 order-2 lg:order-1">
+              <h2 className="font-heading font-bold text-2xl sm:text-3xl lg:text-4xl text-primary">
+                Want to Be Our Next Success Story?
+              </h2>
+              <p className="text-base sm:text-lg text-muted-foreground leading-relaxed">
+                Let's understand your financial challenges and design a personalized plan that works for you. 
+                Join the families and businesses who have already transformed their financial future with our guidance.
+              </p>
+              <div className="space-y-3 sm:space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-muted-foreground">Personalized wealth strategy</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-muted-foreground">Proven track record of success</span>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="w-2 h-2 bg-accent rounded-full flex-shrink-0"></div>
+                  <span className="text-sm sm:text-base text-muted-foreground">Expert financial planning guidance</span>
+                </div>
+              </div>
+              <Button className="btn-hero text-base sm:text-lg w-full sm:w-auto">
+                👉 Schedule Your Free Consultation
+              </Button>
+              <p className="text-sm text-muted-foreground">
+                Or Call: <span className="font-semibold text-primary">+91 76000 21664</span> | <span className="font-semibold text-primary">+91 94081 02596</span>
+              </p>
+            </div>
+            
+            <div className="block relative order-1 lg:order-2 mb-8 lg:mb-0">
+              <div className="relative max-w-sm sm:max-w-md lg:max-w-lg mx-auto">
+                {/* Main Image */}
+                <img 
+                  src={advisorImage}
+                  alt="Financial advisor consultation"
+                  className="w-full h-auto rounded-xl shadow-xl relative z-10"
+                />
+               
+                {/* Experience Badge - Left Side (50% overlap) */}
+                <div className="absolute -left-8 sm:-left-12 lg:-left-16 top-1/2 transform -translate-y-1/2 z-20">
+                  {/* Dotted Pattern Background */}
+                  <div className="absolute -left-3 sm:-left-4 lg:-left-6 -top-3 sm:-top-4 lg:-top-6 w-12 sm:w-16 lg:w-20 h-12 sm:h-16 lg:h-20 opacity-30">
+                    <div className="grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-5 gap-1">
+                      {[...Array(9)].map((_, i) => (
+                        <div key={i} className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                      ))}
+                    </div>
+                  </div>
+                  
+                  {/* Transparent Outer Circle Ring */}
+                  <div className="w-24 sm:w-32 lg:w-40 h-24 sm:h-32 lg:h-40 rounded-full border-2 sm:border-3 lg:border-4 border-gray-300 border-opacity-40 absolute -top-2 sm:-top-3 lg:-top-4 -left-2 sm:-left-3 lg:-left-4 z-0"></div>
+                  
+                  {/* Experience Circle - Main Badge */}
+                  <div 
+                    className="w-20 sm:w-24 lg:w-32 h-20 sm:h-24 lg:h-32 rounded-full flex flex-col items-center justify-center text-white shadow-xl relative z-10 p-2 sm:p-3 lg:p-4"
+                    style={{backgroundColor: '#e3b317'}}
+                  >
+                    <div className="text-sm sm:text-lg lg:text-2xl font-bold leading-tight">₹100Cr+</div>
+                    <div className="text-xs font-medium text-center leading-tight mt-1">Wealth<br/>Managed</div>
+                  </div>
+                </div>
+
+                {/* Client Satisfaction - Right Side */}
+                <div className="absolute -right-6 sm:-right-8 lg:-right-12 top-4 sm:top-6 lg:top-8 z-20">
+                  <div className="bg-white rounded-xl shadow-xl p-3 sm:p-4 lg:p-5 min-w-max">
+                    <div className="flex items-center space-x-1 mb-2">
+                      {[...Array(5)].map((_, i) => (
+                        <svg key={i} className="w-4 h-4 sm:w-5 sm:h-5 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                          <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z"/>
+                        </svg>
+                      ))}
+                    </div>
+                    <div className="text-xs sm:text-sm font-bold text-gray-800">1,500+ Families</div>
+                    <div className="text-xs text-gray-600">Trust Our Guidance</div>
+                  </div>
+                </div>
+
+                {/* Additional Dotted Pattern - Right Bottom */}
+                <div className="absolute -right-4 sm:-right-6 lg:-right-8 -bottom-4 sm:-bottom-6 lg:-bottom-8 w-12 sm:w-14 lg:w-16 h-12 sm:h-14 lg:h-16 opacity-20">
+                  <div className="grid grid-cols-3 sm:grid-cols-4 gap-1">
+                    {[...Array(9)].map((_, i) => (
+                      <div key={i} className="w-1 h-1 bg-gray-400 rounded-full"></div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
     </Layout>

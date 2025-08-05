@@ -32,89 +32,77 @@ const Contact = () => {
   return (
     <Layout>
       <Hero 
-        title="Get in Touch"
-        subtitle="We're Here to Help You Plan Your Financial Future"
+        title="Contact Us"
+        subtitle="Ready to take the next step? We're here to help. Whether you need support with wealth planning, investment advice, business risk strategy, or estate protection, our team is ready to assist you. Choose the contact option that suits you best."
         showCTA={false}
+        className="hero-no-circular"
       />
 
-      <section className="py-16 lg:py-24 bg-background">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
+      {/* Get in Touch - CTA Style Section */}
+      <section 
+        className="py-16 lg:py-24 relative"
+        style={{
+          backgroundImage: "url('/images/bg-option2.png')",
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          backgroundRepeat: 'no-repeat'
+        }}
+      >
+        <div className="absolute inset-0 bg-white/30"></div>
+        <div className="relative z-10 container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16">
             {/* Contact Information */}
             <div className="space-y-8">
               <div>
-                <h2 className="font-heading font-bold text-3xl text-primary mb-6">
-                  Contact Information
+                <h2 className="font-heading font-bold text-3xl lg:text-4xl text-primary mb-6">
+                  Get in Touch
                 </h2>
-                <p className="text-muted-foreground leading-relaxed mb-8">
-                  Ready to take control of your financial future? Get in touch with our expert team. 
-                  We're here to answer your questions and help you get started on your wealth journey.
-                </p>
               </div>
 
               <div className="space-y-6">
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">Phone</h3>
-                    <p className="text-muted-foreground">+91-XXXX-XXXXXX</p>
-                    <p className="text-sm text-muted-foreground">Mon-Sat, 9:00 AM - 6:00 PM</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
                     <Mail className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary mb-1">Email</h3>
-                    <p className="text-muted-foreground">info@deepinvestment.com</p>
-                    <p className="text-sm text-muted-foreground">We'll respond within 24 hours</p>
+                    <h3 className="font-semibold text-primary mb-1">Email Us</h3>
+                    <p className="text-primary font-medium">deepinvestment2003@gmail.com</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
+                  <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
+                    <Phone className="w-6 h-6 text-accent" />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-primary mb-1">Call Us</h3>
+                    <p className="text-primary font-medium">Praful Mistry: +91 76000 21664</p>
+                    <p className="text-primary font-medium">Deep Mistry: +91 94081 02596</p>
+                  </div>
+                </div>
+
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-accent/20 rounded-lg flex items-center justify-center backdrop-blur-sm">
                     <MapPin className="w-6 h-6 text-accent" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-primary mb-1">Bharuch Office</h3>
-                    <p className="text-muted-foreground">Main Branch</p>
+                    <h3 className="font-semibold text-primary mb-1">Visit Us</h3>
+                    <p className="text-primary font-medium">Deep Investment Office</p>
+                    <p className="text-muted-foreground">Gokuldham Complex</p>
+                    <p className="text-muted-foreground">Dahej Bypass Road, Opposite MRF Tyre Showroom</p>
                     <p className="text-muted-foreground">Bharuch, Gujarat 392001</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">Surat Office</h3>
-                    <p className="text-muted-foreground">Consultation Center</p>
-                    <p className="text-muted-foreground">Surat, Gujarat 395007</p>
-                  </div>
-                </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-accent/10 rounded-lg flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-accent" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-primary mb-1">Business Hours</h3>
-                    <p className="text-muted-foreground">Monday - Saturday: 9:00 AM - 6:00 PM</p>
-                    <p className="text-muted-foreground">Sunday: By Appointment Only</p>
+                    <p className="text-sm text-accent font-medium mt-2">(We serve clients across India)</p>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Contact Form */}
-            <div className="surface-card">
+            <div className="surface-card bg-white/90 backdrop-blur-sm">
               <h3 className="font-heading font-bold text-2xl text-primary mb-6">
-                Send us a Message
+                Send Us a Message
               </h3>
+              <p className="text-muted-foreground mb-6">Fill out the form below and our team will respond within 24 business hours.</p>
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-primary font-medium">
@@ -150,16 +138,17 @@ const Contact = () => {
 
                 <div>
                   <Label htmlFor="phone" className="text-primary font-medium">
-                    Phone Number
+                    Phone Number *
                   </Label>
                   <Input
                     id="phone"
                     name="phone"
                     type="tel"
+                    required
                     value={formData.phone}
                     onChange={handleChange}
                     className="mt-2"
-                    placeholder="Enter your phone number"
+                    placeholder="Enter your 10-digit mobile number"
                   />
                 </div>
 
@@ -174,7 +163,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     className="mt-2 min-h-[120px]"
-                    placeholder="Tell us about your financial goals and how we can help you"
+                    placeholder="How can we help you?"
                   />
                 </div>
 
@@ -192,10 +181,10 @@ const Contact = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
             <h2 className="font-heading font-bold text-3xl lg:text-4xl text-primary mb-4">
-              Visit Our Offices
+              Visit Our Office
             </h2>
             <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-              Meet us in person at our convenient locations in Bharuch and Surat
+              Meet us in person at our office in Bharuch
             </p>
           </div>
           
@@ -204,7 +193,7 @@ const Contact = () => {
               <div className="text-center">
                 <MapPin className="w-16 h-16 text-accent mx-auto mb-4" />
                 <p className="text-muted-foreground">Interactive map will be displayed here</p>
-                <p className="text-sm text-muted-foreground mt-2">Bharuch & Surat Office Locations</p>
+                <p className="text-sm text-muted-foreground mt-2">Bharuch Office Location</p>
               </div>
             </div>
           </div>
