@@ -68,10 +68,28 @@ const Blog = () => {
   return (
     <Layout>
       <Hero 
-        title="Financial Insights"
-        subtitle="Stay Informed with Expert Advice"
+        title="Blog"
+        subtitle="At Deep Investment, we believe that financial literacy is the cornerstone of lasting wealth. Our blog is designed to simplify complex financial concepts and offer clear, practical insights on wealth creation, investment planning, risk management, and legacy protection."
         showCTA={false}
+        className="hero-no-circular"
       />
+
+      {/* Blog Introduction Section */}
+      <section className="py-12 bg-background">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto text-center">
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              Whether you are just getting started, growing your business, or safeguarding your family's future, our goal is to help you make confident and well-informed financial decisions.
+            </p>
+            <p className="text-lg text-muted-foreground leading-relaxed mb-6">
+              We write for real people, not just finance professionals, so you can turn knowledge into action and strategy into results.
+            </p>
+            <p className="text-xl font-medium text-primary">
+              Explore our latest articles and start building your financial intelligence today.
+            </p>
+          </div>
+        </div>
+      </section>
 
       <section className="py-16 lg:py-24 bg-gray-50">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -115,9 +133,13 @@ const Blog = () => {
                     {/* Image with hover zoom effect */}
                     <div className="h-48 bg-gradient-to-br from-blue-500 to-purple-600 relative overflow-hidden">
                       <img 
-                        src="/images/image.png" 
+                        src={`/images/blog${((post.id - 1) % 3) + 1}.png`} 
                         alt={title}
                         className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-110"
+                        onError={(e) => {
+                          // Fallback to placeholder if blog image doesn't exist
+                          (e.target as HTMLImageElement).src = "/images/image.png";
+                        }}
                       />
                       <div className="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors duration-300"></div>
                       <div className="absolute top-4 left-4">
@@ -174,33 +196,6 @@ const Blog = () => {
                 Next
               </Button>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Newsletter Subscription */}
-      <section className="py-16 lg:py-24 surface-gradient">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="max-w-2xl mx-auto">
-            <h2 className="font-heading font-bold text-3xl lg:text-4xl text-primary mb-4">
-              Subscribe to Our Newsletter
-            </h2>
-            <p className="text-lg text-muted-foreground mb-8">
-              Get the latest financial insights and investment tips delivered directly to your inbox every week.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-accent"
-              />
-              <Button className="btn-hero whitespace-nowrap">
-                Subscribe Now
-              </Button>
-            </div>
-            <p className="text-sm text-muted-foreground mt-4">
-              No spam, unsubscribe at any time. We respect your privacy.
-            </p>
           </div>
         </div>
       </section>
