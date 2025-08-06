@@ -79,7 +79,7 @@ const BlogPost = () => {
     
     return (
       <Link to="/contact">
-        <Button className={`${buttonClass} px-8 py-3 rounded-lg transition-all duration-300 transform hover:scale-105`}>
+        <Button className={`${buttonClass} px-4 py-2 sm:px-6 sm:py-3 lg:px-8 lg:py-3 rounded-lg transition-all duration-300 transform hover:scale-105 text-sm sm:text-base`}>
           {text}
         </Button>
       </Link>
@@ -96,7 +96,7 @@ const BlogPost = () => {
     if (Array.isArray(value)) {
       return (
         <div className="mb-4">
-          <h3 className={`${depth === 0 ? 'text-xl' : 'text-lg'} font-semibold text-gray-900 mb-3`}>
+          <h3 className={`${depth === 0 ? 'text-lg sm:text-xl' : 'text-base sm:text-lg'} font-semibold text-gray-900 mb-3`}>
             {formatHeading(key)}
           </h3>
           <ul className="list-disc list-inside space-y-2 ml-4">
@@ -119,7 +119,7 @@ const BlogPost = () => {
         const ctaType = Math.random() > 0.5 ? 'gold' : 'blue'; // Randomize gold/blue
         return (
           <div className="text-center my-8 p-6 bg-gradient-to-r from-gray-50 to-gray-100 rounded-xl">
-            <h3 className="text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4">Ready to Get Started?</h3>
             {renderCallToAction(value, ctaType)}
           </div>
         );
@@ -129,7 +129,7 @@ const BlogPost = () => {
       if (keyLower.includes('final') || keyLower.includes('conclusion') || keyLower.includes('takeaway')) {
         return (
           <div className="bg-gradient-to-br from-green-50 to-blue-50 p-8 rounded-xl border-l-4 border-green-500 my-8">
-            <h2 className="text-2xl font-bold text-green-900 mb-4">
+            <h2 className="text-xl sm:text-2xl font-bold text-green-900 mb-4">
               {value.heading || formatHeading(key)}
             </h2>
             {Object.entries(value).map(([subKey, subValue]) => {
@@ -158,7 +158,7 @@ const BlogPost = () => {
       // Handle objects with heading property
       if (value.heading) {
         sections.push(
-          <h3 key="heading" className={`${depth === 0 ? 'text-xl' : 'text-lg'} font-semibold text-gray-900 mb-3`}>
+          <h3 key="heading" className={`${depth === 0 ? 'text-lg sm:text-xl' : 'text-base sm:text-lg'} font-semibold text-gray-900 mb-3`}>
             {value.heading}
           </h3>
         );
@@ -181,7 +181,7 @@ const BlogPost = () => {
       return (
         <div className="mb-6">
           {!value.heading && depth === 0 && (
-            <h3 className="text-xl font-semibold text-gray-900 mb-3">
+            <h3 className="text-lg sm:text-xl font-semibold text-gray-900 mb-3">
               {formatHeading(key)}
             </h3>
           )}
@@ -206,7 +206,7 @@ const BlogPost = () => {
       // Show heading for other string content
       return (
         <div className="mb-6">
-          <h3 className={`${depth === 0 ? 'text-xl' : 'text-lg'} font-semibold text-gray-900 mb-3`}>
+          <h3 className={`${depth === 0 ? 'text-lg sm:text-xl' : 'text-base sm:text-lg'} font-semibold text-gray-900 mb-3`}>
             {formatHeading(key)}
           </h3>
           <p className="text-gray-700 leading-relaxed">
@@ -301,15 +301,15 @@ const BlogPost = () => {
             </Button>
             
             <div className="max-w-4xl mx-auto">
-              <h1 className="text-4xl font-bold text-gray-900 mb-4">{title}</h1>
-              <div className="flex items-center text-gray-500 space-x-4">
+              <h1 className="text-2xl sm:text-3xl lg:text-4xl font-bold text-gray-900 mb-4">{title}</h1>
+              <div className="flex flex-col sm:flex-row sm:items-center text-gray-500 space-y-2 sm:space-y-0 sm:space-x-4">
                 <div className="flex items-center">
                   <Calendar className="w-4 h-4 mr-1" />
-                  {formattedDate}
+                  <span className="text-sm sm:text-base">{formattedDate}</span>
                 </div>
                 <div className="flex items-center">
                   <Clock className="w-4 h-4 mr-1" />
-                  5 min read
+                  <span className="text-sm sm:text-base">5 min read</span>
                 </div>
               </div>
             </div>
@@ -319,7 +319,7 @@ const BlogPost = () => {
         {/* Hero Image */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-8">
           <div className="max-w-4xl mx-auto">
-            <div className="h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-lg mb-8">
+            <div className="h-48 sm:h-64 md:h-80 lg:h-96 rounded-xl overflow-hidden shadow-lg mb-6 sm:mb-8">
               <img 
                 src={`/images/blog${((post.id - 1) % 3) + 1}.png`} 
                 alt={title}
@@ -336,7 +336,7 @@ const BlogPost = () => {
         {/* Content */}
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 pb-12">
           <div className="max-w-4xl mx-auto">
-            <article className="bg-white rounded-lg shadow-lg p-8">
+            <article className="bg-white rounded-lg shadow-lg p-4 sm:p-6 lg:p-8">
               {renderContent(content)}
             </article>
           </div>

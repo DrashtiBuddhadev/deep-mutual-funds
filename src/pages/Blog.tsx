@@ -113,7 +113,7 @@ const Blog = () => {
               </div>
             </div>
           ) : (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
               {blogPosts.map((post) => {
                 const content = post.content as BlogContent;
                 const title = getBlogTitle(post);
@@ -181,18 +181,18 @@ const Blog = () => {
 
           {/* Pagination */}
           <div className="flex justify-center mt-12">
-            <div className="flex space-x-2">
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-0 sm:space-x-2">
+              <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-3 py-1 text-sm">
                 Previous
               </Button>
-              <Button className="btn-primary">1</Button>
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+              <Button size="sm" className="btn-primary px-3 py-1">1</Button>
+              <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-3 py-1 text-sm">
                 2
               </Button>
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+              <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-3 py-1 text-sm">
                 3
               </Button>
-              <Button variant="outline" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground">
+              <Button variant="outline" size="sm" className="border-accent text-accent hover:bg-accent hover:text-accent-foreground px-3 py-1 text-sm">
                 Next
               </Button>
             </div>
