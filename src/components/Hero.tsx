@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import { Shield, TrendingUp, Home, Briefcase, Calculator } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 interface HeroProps {
   title: string;
@@ -55,9 +56,11 @@ const Hero = ({
                 {subtitle}
               </p>
               {showCTA && (
-                <Button className="text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-medium rounded-md transition-all duration-300 w-full sm:w-auto" style={{backgroundColor: '#e3b317', boxShadow: '0 10px 25px rgba(227, 179, 23, 0.25)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d4a516'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#e3b317'}>
-                  Schedule Your Free Consultation
-                </Button>
+                <Link to="/contact">
+                  <Button className="text-white px-6 sm:px-8 py-2 sm:py-3 text-base sm:text-lg font-medium rounded-md transition-all duration-300 w-full sm:w-auto" style={{backgroundColor: '#e3b317', boxShadow: '0 10px 25px rgba(227, 179, 23, 0.25)'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d4a516'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#e3b317'}>
+                    Schedule Your Free Consultation
+                  </Button>
+                </Link>
               )}
             </div>
           </div>

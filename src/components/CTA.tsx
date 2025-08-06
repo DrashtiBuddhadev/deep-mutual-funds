@@ -1,5 +1,6 @@
 import { Button } from '@/components/ui/button';
 import advisorImage from '@/assets/advisor-working.jpg';
+import { Link } from 'react-router-dom';
 
 const CTA = () => {
   return (
@@ -42,9 +43,11 @@ const CTA = () => {
                  <span className="text-sm sm:text-base text-muted-foreground">Goal-based financial planning</span>
                </div>
              </div>
-             <Button className="btn-hero text-base sm:text-lg w-full sm:w-auto">
-               Schedule Your Free Consultation
-             </Button>
+             <Link to="/contact">
+               <Button className="btn-hero text-base sm:text-lg w-full sm:w-auto">
+                 Schedule Your Free Consultation
+               </Button>
+             </Link>
            </div>
           
                      <div className="block relative order-1 lg:order-2 mb-8 lg:mb-0">

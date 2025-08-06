@@ -1,5 +1,6 @@
 import heroImage from '/images/hero1.png';
 import { PiggyBank, TrendingUp, Shield } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const AboutSection = () => {
   const metrics = [
@@ -97,9 +98,11 @@ const AboutSection = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row items-start sm:items-center space-y-4 sm:space-y-0 sm:space-x-6">
-              <button className="text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-colors hover:opacity-90 w-full sm:w-auto" style={{backgroundColor: '#e3b317'}}>
-                Learn more →
-              </button>
+              <Link to="/about">
+                <button className="text-white px-4 sm:px-6 py-2 sm:py-3 rounded-lg font-medium transition-colors hover:opacity-90 w-full sm:w-auto" style={{backgroundColor: '#e3b317'}}>
+                  Learn more →
+                </button>
+              </Link>
               
               <div className="flex items-center space-x-3">
                 <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center" style={{backgroundColor: 'rgba(17, 80, 153, 0.1)'}}>

@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Shield, Star, Eye, Heart, TrendingUp, Building } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   const team = [
@@ -280,9 +281,11 @@ const About = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Let our experienced team help you create a personalized financial plan that aligns with your goals.
           </p>
-          <Button className="btn-hero text-lg">
-            Book Your Free Consultation
-          </Button>
+          <Link to="/contact">
+            <Button className="btn-hero text-lg">
+              Book Your Free Consultation
+            </Button>
+          </Link>
         </div>
       </section>
     </Layout>

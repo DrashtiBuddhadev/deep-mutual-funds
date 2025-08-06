@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
+import { Link } from 'react-router-dom';
 import './services.css';
 
 const Services = () => {
@@ -220,9 +221,11 @@ const Services = () => {
                       <h5 className="step-title">{step.title}</h5>
                       <div className="step-description">{step.content}</div>
                       <div className="step-button">
-                        <button className="bg-transparent border-2 border-gray-400 text-gray-700 px-6 py-3 rounded-full hover:bg-[#115099] hover:text-white hover:border-[#115099] transition-all duration-300">
-                          {step.buttonText}
-                        </button>
+                        <Link to="/contact">
+                          <button className="bg-transparent border-2 border-gray-400 text-gray-700 px-6 py-3 rounded-full hover:bg-[#115099] hover:text-white hover:border-[#115099] transition-all duration-300">
+                            {step.buttonText}
+                          </button>
+                        </Link>
                       </div>
                     </div>
                   </div>

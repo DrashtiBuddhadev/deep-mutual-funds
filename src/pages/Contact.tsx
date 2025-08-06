@@ -4,8 +4,9 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Label } from '@/components/ui/label';
-import { MapPin, Phone, Mail, Clock } from 'lucide-react';
+import { MapPin, Phone, Mail, Clock, CheckCircle, XCircle } from 'lucide-react';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -15,11 +16,100 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [isLoading, setIsLoading] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<{
+    type: 'success' | 'error' | null;
+    message: string;
+  }>({ type: null, message: '' });
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // Mock form submission
-    alert('Thank you for your inquiry! We will contact you within 24 hours.');
-    setFormData({ name: '', email: '', phone: '', message: '' });
+    setIsLoading(true);
+    setSubmitStatus({ type: null, message: '' });
+
+    // Basic form validation
+    if (!formData.name.trim() || !formData.email.trim() || !formData.phone.trim() || !formData.message.trim()) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please fill in all required fields.',
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please enter a valid email address.',
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    // Phone validation (basic 10 digit check)
+    const phoneDigits = formData.phone.replace(/[^\d]/g, '');
+    if (phoneDigits.length !== 10) {
+      setSubmitStatus({
+        type: 'error',
+        message: 'Please enter a valid 10-digit phone number.',
+      });
+      setIsLoading(false);
+      return;
+    }
+
+    try {
+      // For development, we'll simulate the email sending
+      // In production (on Vercel), this will use the actual API
+      const isDevelopment = import.meta.env.DEV;
+      
+      let response;
+      
+      if (isDevelopment) {
+        // Simulate a successful API call in development
+        await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
+        response = {
+          ok: true,
+          json: async () => ({
+            success: true,
+            message: 'Your message has been sent successfully! We will contact you within 24 hours. (Development Mode - No actual email sent)',
+          })
+        };
+      } else {
+        // Production API call
+        response = await fetch('/api/send-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
+        });
+      }
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.error || 'Failed to send message');
+      }
+
+      setSubmitStatus({
+        type: 'success',
+        message: result.message || 'Your message has been sent successfully! We will contact you within 24 hours.',
+      });
+      
+      // Reset form on success
+      setFormData({ name: '', email: '', phone: '', message: '' });
+
+    } catch (error) {
+      console.error('Form submission error:', error);
+      setSubmitStatus({
+        type: 'error',
+        message: error instanceof Error ? error.message : 'Failed to send message. Please try again later.',
+      });
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -27,6 +117,10 @@ const Contact = () => {
       ...formData,
       [e.target.name]: e.target.value
     });
+    // Clear status when user starts typing again
+    if (submitStatus.type) {
+      setSubmitStatus({ type: null, message: '' });
+    }
   };
 
   return (
@@ -103,6 +197,25 @@ const Contact = () => {
                 Send Us a Message
               </h3>
               <p className="text-muted-foreground mb-6">Fill out the form below and our team will respond within 24 business hours.</p>
+              
+              {/* Status Messages */}
+              {submitStatus.type && (
+                <div className={`p-4 rounded-lg border mb-6 ${
+                  submitStatus.type === 'success' 
+                    ? 'bg-green-50 border-green-200 text-green-800' 
+                    : 'bg-red-50 border-red-200 text-red-800'
+                }`}>
+                  <div className="flex items-center space-x-2">
+                    {submitStatus.type === 'success' ? (
+                      <CheckCircle className="w-5 h-5 text-green-600" />
+                    ) : (
+                      <XCircle className="w-5 h-5 text-red-600" />
+                    )}
+                    <p className="font-medium">{submitStatus.message}</p>
+                  </div>
+                </div>
+              )}
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div>
                   <Label htmlFor="name" className="text-primary font-medium">
@@ -167,8 +280,19 @@ const Contact = () => {
                   />
                 </div>
 
-                <Button type="submit" className="btn-primary w-full">
-                  Send Message
+                <Button 
+                  type="submit" 
+                  className="btn-primary w-full" 
+                  disabled={isLoading}
+                >
+                  {isLoading ? (
+                    <div className="flex items-center space-x-2">
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Sending Message...</span>
+                    </div>
+                  ) : (
+                    'Send Message'
+                  )}
                 </Button>
               </form>
             </div>
@@ -189,12 +313,17 @@ const Contact = () => {
           </div>
           
           <div className="surface-card">
-            <div className="h-96 bg-surface rounded-lg flex items-center justify-center">
-              <div className="text-center">
-                <MapPin className="w-16 h-16 text-accent mx-auto mb-4" />
-                <p className="text-muted-foreground">Interactive map will be displayed here</p>
-                <p className="text-sm text-muted-foreground mt-2">Bharuch Office Location</p>
-              </div>
+            <div className="h-96 bg-surface rounded-lg overflow-hidden">
+              <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3706.482490756528!2d72.99041367395645!3d21.72281276358178!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3be0275533f69bcb%3A0x269a5554106b1a19!2sDeep%20Investment!5e0!3m2!1sen!2sin!4v1754471820570!5m2!1sen!2sin" 
+                width="100%" 
+                height="100%" 
+                style={{border:0}} 
+                allowFullScreen={true} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Deep Investment Office Location"
+              />
             </div>
           </div>
         </div>
@@ -209,7 +338,15 @@ const Contact = () => {
           <p className="text-lg text-muted-foreground mb-8 max-w-2xl mx-auto">
             Book a free 30-minute consultation to discuss your financial goals and discover how we can help you achieve them.
           </p>
-          <Button className="btn-hero text-lg">
+          <Button 
+            className="btn-hero text-lg"
+            onClick={() => {
+              document.querySelector('form')?.scrollIntoView({ 
+                behavior: 'smooth', 
+                block: 'start' 
+              });
+            }}
+          >
             Book Your Free Consultation
           </Button>
         </div>
