@@ -66,7 +66,7 @@ export default async function handler(req, res) {
 
     // Send email to business
     const emailResult = await resend.emails.send({
-      from: 'mutual_fund <noreply@resend.dev>',
+      from: 'onboarding@resend.dev',
       to: [process.env.CONTACT_EMAIL || 'buddhadevdrashti@gmail.com'],
       subject: emailSubject,
       html: emailContent,
