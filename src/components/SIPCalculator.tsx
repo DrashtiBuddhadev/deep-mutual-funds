@@ -182,7 +182,7 @@ const SIPCalculator = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Profit:</span>
-                    <span className="font-bold text-green-600">{formatCurrency(results.totalReturns)}</span>
+                    <span className="font-bold text-accent">{formatCurrency(results.totalReturns)}</span>
                   </div>
                   <div className="border-t pt-2">
                     <div className="flex justify-between items-center">
@@ -244,7 +244,7 @@ const SIPCalculator = () => {
                       return `L ${x},${y}`;
                     }).join(' ')}`}
                     fill="none"
-                    stroke="#10b981"
+                    stroke="#e3b317"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -274,7 +274,7 @@ const SIPCalculator = () => {
                     
                     return (
                       <g key={index}>
-                        <circle cx={x} cy={investmentY} r="3" fill="#10b981" stroke="white" strokeWidth="1.5"/>
+                        <circle cx={x} cy={investmentY} r="3" fill="#e3b317" stroke="white" strokeWidth="1.5"/>
                         <circle cx={x} cy={maturityY} r="3" fill="#115099" stroke="white" strokeWidth="1.5"/>
                       </g>
                     );
@@ -291,7 +291,7 @@ const SIPCalculator = () => {
               <div className="space-y-3 sm:space-y-4 mb-6 lg:mb-8">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="w-3 sm:w-4 h-1 bg-green-500 rounded mr-2 sm:mr-3"></div>
+                    <div className="w-3 sm:w-4 h-1 bg-accent rounded mr-2 sm:mr-3"></div>
                     <span className="text-xs sm:text-sm text-gray-700">Amount Invested</span>
                   </div>
                   <span className="font-bold text-xs sm:text-sm text-gray-800">
