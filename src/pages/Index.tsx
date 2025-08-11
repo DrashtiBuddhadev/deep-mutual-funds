@@ -2,6 +2,7 @@ import Layout from '@/components/Layout';
 import Hero from '@/components/Hero';
 import AboutSection from '@/components/AboutSection';
 import WealthJourneyBenefits from '@/components/WealthJourneyBenefits';
+import SIPCalculator from '@/components/SIPCalculator';
 import CTA from '@/components/CTA';
 import FAQ from '@/components/FAQ';
 const heroImage = '/images/backgroundImage.png';
@@ -30,6 +31,7 @@ const Index = () => {
       </section>
       <AboutSection />
       <WealthJourneyBenefits />
+      <SIPCalculator />
       <CTA />
       <FAQ />
     </Layout>
