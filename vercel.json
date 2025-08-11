@@ -1,3 +1,4 @@
+
 {
   "functions": {
     "api/send-email.js": {
@@ -7,5 +8,8 @@
   "env": {
     "RESEND_API_KEY": "@resend_api_key",
     "CONTACT_EMAIL": "@contact_email"
-  }
+  },
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/" }
+  ]
 }
