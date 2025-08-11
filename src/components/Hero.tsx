@@ -46,7 +46,7 @@ const Hero = ({
           }`}></div>
         )}
         <div className={`absolute inset-0 ${
-          isHomePage ? 'bg-white/10' : 'bg-black/60'
+          isHomePage ? 'bg-white/20' : 'bg-black/60'
         }`}></div>
       </div>
 
