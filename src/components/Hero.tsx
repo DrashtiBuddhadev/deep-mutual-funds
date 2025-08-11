@@ -25,6 +25,9 @@ const Hero = ({
     { icon: Calculator, label: 'Tax and Compliance Advisory' }
   ];
 
+  // Check if this is a non-home page (hero-no-circular class)
+  const isHomePage = !className.includes('hero-no-circular');
+
   return (
     <section className={`relative min-h-screen flex items-center ${className}`}>
       {/* Background Image with Dark Overlay */}
@@ -36,23 +39,44 @@ const Hero = ({
             className="w-full h-full object-cover"
           />
         ) : (
-          <div className="w-full h-full bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"></div>
+          <div className={`w-full h-full ${
+            isHomePage 
+              ? 'bg-gradient-to-br from-slate-50 via-blue-50 to-slate-100' 
+              : 'bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800'
+          }`}></div>
         )}
-        <div className="absolute inset-0 bg-black/60"></div>
+        <div className={`absolute inset-0 ${
+          isHomePage ? 'bg-white/10' : 'bg-black/60'
+        }`}></div>
       </div>
 
       <div className="relative container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left Content */}
           <div className="text-left order-1 lg:order-1">
-            <div className="backdrop-blur-sm p-6 sm:p-8 rounded-lg border border-white/10 shadow-lg" style={{background: 'linear-gradient(135deg, rgba(17, 80, 153, 0.15) 0%, rgba(17, 80, 153, 0.08) 30%, rgba(255, 255, 255, 0.08) 70%, rgba(255, 255, 255, 0.03) 100%)', boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.15)'}}>
+            <div className={`${
+              isHomePage 
+                ? 'backdrop-blur-lg border-white/40 shadow-2xl' 
+                : 'backdrop-blur-sm border-white/10 shadow-lg'
+            } p-6 sm:p-8 rounded-lg`} style={{
+              background: isHomePage 
+                ? 'linear-gradient(135deg, rgba(255, 255, 255, 0.9) 0%, rgba(248, 250, 252, 0.95) 30%, rgba(241, 245, 249, 0.95) 70%, rgba(226, 232, 240, 0.9) 100%)' 
+                : 'linear-gradient(135deg, rgba(17, 80, 153, 0.15) 0%, rgba(17, 80, 153, 0.08) 30%, rgba(255, 255, 255, 0.08) 70%, rgba(255, 255, 255, 0.03) 100%)',
+              boxShadow: isHomePage 
+                ? '0 25px 50px -15px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.5)' 
+                : '0 10px 25px -5px rgba(0, 0, 0, 0.15)'
+            }}>
               <div className="font-medium mb-2 text-xs sm:text-sm uppercase tracking-wide" style={{color: '#e3b317'}}>
                 Investment & Financial Planning
               </div>
-              <h1 className="font-heading font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl text-white mb-3 sm:mb-4 leading-tight">
+              <h1 className={`font-heading font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl mb-3 sm:mb-4 leading-tight ${
+                isHomePage ? 'text-slate-800' : 'text-white'
+              }`}>
                 {title}
               </h1>
-              <p className="text-sm sm:text-base text-white/90 mb-4 sm:mb-6 leading-relaxed">
+              <p className={`text-sm sm:text-base mb-4 sm:mb-6 leading-relaxed ${
+                isHomePage ? 'text-slate-700' : 'text-white/90'
+              }`}>
                 {subtitle}
               </p>
               {showCTA && (
@@ -65,33 +89,37 @@ const Hero = ({
             </div>
           </div>
 
-          {/* Right Side - Services Section */}
-          <div className="order-2 lg:order-2 mb-8 lg:mb-0">
-            {/* Mobile List View */}
-            <div className="lg:hidden">
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold text-white mb-4 text-center">Our Services</h3>
-                {services.map((service, index) => (
-                  <div
-                    key={service.label}
-                    className="flex items-center p-4 bg-white/10 backdrop-blur-sm rounded-lg border border-white/20 hover:bg-white/15 transition-all duration-300"
-                  >
-                    <div className="w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0" style={{backgroundColor: '#e3b317'}}>
-                      <service.icon className="w-5 h-5 text-white" />
+          {/* Right Side - Services Section - Only show on home page */}
+          {isHomePage && (
+            <div className="order-1 lg:order-1 mb-8 lg:mb-0">
+              {/* Mobile List View */}
+              <div className="lg:hidden">
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold mb-4 text-center drop-shadow-sm text-slate-900">Our Services</h3>
+                  {services.map((service, index) => (
+                    <div
+                      key={service.label}
+                      className="flex items-center p-4 bg-white/80 backdrop-blur-lg rounded-lg border border-white/50 hover:bg-white/90 transition-all duration-300 shadow-xl"
+                    >
+                      <div className="w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0" style={{backgroundColor: '#e3b317'}}>
+                        <service.icon className="w-5 h-5 text-white" />
+                      </div>
+                      <div className="flex-1">
+                        <p className="font-semibold text-sm leading-tight text-slate-900">{service.label}</p>
+                      </div>
                     </div>
-                    <div className="flex-1">
-                      <p className="text-white font-medium text-sm leading-tight">{service.label}</p>
-                    </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
               </div>
-            </div>
 
-            {/* Desktop Circular View */}
-            <div className="hidden lg:flex relative items-center justify-center">
+              {/* Desktop Circular View */}
+              <div className="hidden lg:flex relative items-center justify-center">
               <div className="relative w-[28rem] h-[28rem]">
                 {/* Center Icon */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full flex items-center justify-center shadow-xl border-4 border-white/20 z-10" style={{backgroundColor: '#e3b317'}}>
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full flex items-center justify-center shadow-2xl border-4 border-white/60 z-10" style={{
+                  backgroundColor: '#e3b317', 
+                  backdropFilter: 'blur(20px)'
+                }}>
                   <svg width="40" height="44" viewBox="0 0 61 68" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M35.7974 36.0723H33.7148V38.1446H35.7974V36.0723Z" fill="white"/>
                     <path d="M35.7974 40.2173H33.7148V42.2897H35.7974V40.2173Z" fill="white"/>
@@ -110,10 +138,10 @@ const Hero = ({
                 <svg className="absolute inset-0 w-full h-full pointer-events-none z-0" viewBox="0 0 448 448">
                   <defs>
                     <radialGradient id="centerGradient" cx="50%" cy="50%" r="40%">
-                      <stop offset="0%" stopColor="rgba(227, 179, 23, 0.6)" />
-                      <stop offset="30%" stopColor="rgba(227, 179, 23, 0.35)" />
-                      <stop offset="60%" stopColor="rgba(17, 80, 153, 0.2)" />
-                      <stop offset="100%" stopColor="rgba(17, 80, 153, 0.1)" />
+                      <stop offset="0%" stopColor="rgba(227, 179, 23, 0.4)" />
+                      <stop offset="30%" stopColor="rgba(227, 179, 23, 0.25)" />
+                      <stop offset="60%" stopColor="rgba(255, 255, 255, 0.2)" />
+                      <stop offset="100%" stopColor="rgba(255, 255, 255, 0.1)" />
                     </radialGradient>
                   </defs>
                   
@@ -131,7 +159,7 @@ const Hero = ({
                     cy="224"
                     r="180"
                     fill="none"
-                    stroke="rgba(255,255,255,0.1)"
+                    stroke="rgba(255,255,255,0.4)"
                     strokeWidth="1"
                   />
 
@@ -141,7 +169,7 @@ const Hero = ({
                     cy="224"
                     r="180"
                     fill="none"
-                    stroke="rgba(255, 255, 255, 0.9)"
+                    stroke="rgba(255, 255, 255, 0.8)"
                     strokeWidth="3"
                     strokeDasharray="80,280"
                     strokeLinecap="round"
@@ -163,22 +191,23 @@ const Hero = ({
                   return (
                     <div
                       key={service.label}
-                      className="absolute w-16 h-16 bg-white/15 backdrop-blur-md rounded-full flex items-center justify-center shadow-xl border-2 border-white/30 hover:bg-white/25 hover:scale-110 transition-all duration-300 cursor-pointer group z-10"
+                      className="absolute w-16 h-16 bg-white/30 backdrop-blur-2xl rounded-full flex items-center justify-center shadow-2xl border-2 border-white/60 hover:bg-white/40 hover:scale-110 transition-all duration-300 cursor-pointer group z-10"
                       style={{
                         left: `calc(50% + ${x}px - 32px)`,
                         top: `calc(50% + ${y}px - 32px)`,
                       }}
                     >
-                      <service.icon className="w-8 h-8 text-white transition-colors" onMouseEnter={(e) => e.currentTarget.style.color = '#e3b317'} onMouseLeave={(e) => e.currentTarget.style.color = 'white'} />
-                      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-sm font-medium text-white/90 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 backdrop-blur-sm px-2 py-1 rounded">
+                      <service.icon className="w-8 h-8 text-white transition-colors drop-shadow-lg" onMouseEnter={(e) => e.currentTarget.style.color = '#e3b317'} onMouseLeave={(e) => e.currentTarget.style.color = 'white'} />
+                      <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-sm font-medium text-slate-900 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-white/95 backdrop-blur-lg px-3 py-2 rounded-lg border border-white/40 shadow-xl">
                         {service.label}
                       </div>
                     </div>
                   );
                 })}
+                </div>
               </div>
             </div>
-          </div>
+          )}
         </div>
       </div>
     </section>
