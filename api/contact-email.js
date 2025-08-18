@@ -31,8 +31,8 @@ export default async function handler(req, res) {
     }
 
     // Create transporter - using environment variables or fallback
-    const gmailUser = process.env.GMAIL_USER || 'buddhadevdrashti@gmail.com';
-    const gmailPass = process.env.GMAIL_PASS || 'ehwa fwsm fwgh hsgc';
+    const gmailUser = process.env.GMAIL_USER || 'clientwork247@gmail.com';
+    const gmailPass = process.env.GMAIL_PASS || 'albd hljr filw lfqg';
     
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
