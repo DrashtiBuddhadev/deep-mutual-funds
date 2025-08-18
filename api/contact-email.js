@@ -3,6 +3,16 @@
 import nodemailer from 'nodemailer';
 
 export default async function handler(req, res) {
+  // Set CORS headers
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'POST');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+  
+  if (req.method === 'OPTIONS') {
+    res.status(200).end();
+    return;
+  }
+
   if (req.method !== 'POST') {
     return res.status(405).json({ message: 'Method not allowed' });
   }
@@ -15,16 +25,20 @@ export default async function handler(req, res) {
     
     if (!customerName || !email || !phone) {
       return res.status(400).json({ 
+        success: false,
         message: 'Name, email, and phone are required fields' 
       });
     }
 
-    // Create transporter
+    // Create transporter - using environment variables or fallback
+    const gmailUser = process.env.GMAIL_USER || 'buddhadevdrashti@gmail.com';
+    const gmailPass = process.env.GMAIL_PASS || 'ehwa fwsm fwgh hsgc';
+    
     const transporter = nodemailer.createTransporter({
       service: 'gmail',
       auth: {
-        user: 'buddhadevdrashti@gmail.com',
-        pass: 'ehwa fwsm fwgh hsgc'
+        user: gmailUser,
+        pass: gmailPass
       }
     });
 
@@ -62,10 +76,14 @@ export default async function handler(req, res) {
     });
   } catch (error) {
     console.error('Error sending email:', error);
-    res.status(500).json({ 
-      success: false,
-      message: 'Error sending email', 
-      error: error.message 
-    });
+    
+    // Ensure we always return JSON
+    if (!res.headersSent) {
+      res.status(500).json({ 
+        success: false,
+        message: 'Failed to send email. Please try again later.',
+        error: process.env.NODE_ENV === 'development' ? error.message : 'Internal server error'
+      });
+    }
   }
 }
