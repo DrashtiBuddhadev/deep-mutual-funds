@@ -45,19 +45,25 @@ const ContactFormModal = ({ children, buttonText = 'Get Free Consultation', form
     e.preventDefault();
     setIsSubmitting(true);
     
-    // Simulate form submission
     try {
-      // Here you would typically send the data to your backend
-      console.log('Form submitted:', formData);
-      
-      // Simulate API call delay
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      const response = await fetch('/api/contact-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      const result = await response.json();
+
+      if (!response.ok) {
+        throw new Error(result.message || 'Failed to send message');
+      }
       
       // Reset form and close modal
       setFormData({ name: '', email: '', phone: '' });
       setOpen(false);
       
-      // You could show a success toast here
       alert('Thank you! We will contact you soon.');
     } catch (error) {
       console.error('Error submitting form:', error);

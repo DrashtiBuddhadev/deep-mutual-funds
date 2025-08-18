@@ -78,7 +78,7 @@ const Contact = () => {
         };
       } else {
         // Production API call
-        response = await fetch('/api/send-email', {
+        response = await fetch('/api/contact-email', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
