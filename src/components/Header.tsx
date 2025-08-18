@@ -38,20 +38,13 @@ const Header = () => {
       }}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+        <div className="flex items-center justify-between py-2 lg:py-3">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <img 
-              src="/images/logo1.jpeg"
+              src="/images/logo1.jpg"
               alt="Deep Investment"
-              className="transition-all duration-300"
-              style={{ 
-                height: '60px', 
-                width: '120px',
-                minHeight: '60px', 
-                minWidth: '120px',
-                objectFit: 'contain'
-              }}
+              className="transition-all duration-300 block h-12 sm:h-14 md:h-16 lg:h-20 w-auto object-contain ml-2"
             />
           </Link>
 
