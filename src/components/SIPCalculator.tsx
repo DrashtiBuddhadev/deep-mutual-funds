@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { Calculator } from 'lucide-react';
-import { Link } from 'react-router-dom';
+import ContactFormModal from './ContactFormModal';
 
 const SIPCalculator = () => {
   const [sipAmount, setSipAmount] = useState<number>(45000);
@@ -98,7 +98,7 @@ const SIPCalculator = () => {
               <div className="mb-6 lg:mb-8">
                 <div className="border-2 border-primary rounded-lg p-3 sm:p-4 bg-primary/5">
                   <label className="block text-xs sm:text-sm font-semibold text-gray-700 mb-2 sm:mb-3">
-                    ENTER AMOUNT
+                    ENTER AMOUNT(per month)
                   </label>
                   <div className="relative">
                     <span className="absolute left-0 top-0 text-lg sm:text-2xl font-bold text-gray-800">₹</span>
@@ -182,7 +182,7 @@ const SIPCalculator = () => {
                   </div>
                   <div className="flex justify-between items-center">
                     <span className="text-sm text-gray-600">Profit:</span>
-                    <span className="font-bold text-accent">{formatCurrency(results.totalReturns)}</span>
+                    <span className="font-bold text-green-600">{formatCurrency(results.totalReturns)}</span>
                   </div>
                   <div className="border-t pt-2">
                     <div className="flex justify-between items-center">
@@ -244,7 +244,7 @@ const SIPCalculator = () => {
                       return `L ${x},${y}`;
                     }).join(' ')}`}
                     fill="none"
-                    stroke="#e3b317"
+                    stroke="#10b981"
                     strokeWidth="2.5"
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -274,7 +274,7 @@ const SIPCalculator = () => {
                     
                     return (
                       <g key={index}>
-                        <circle cx={x} cy={investmentY} r="3" fill="#e3b317" stroke="white" strokeWidth="1.5"/>
+                        <circle cx={x} cy={investmentY} r="3" fill="#10b981" stroke="white" strokeWidth="1.5"/>
                         <circle cx={x} cy={maturityY} r="3" fill="#115099" stroke="white" strokeWidth="1.5"/>
                       </g>
                     );
@@ -291,7 +291,7 @@ const SIPCalculator = () => {
               <div className="space-y-3 sm:space-y-4 mb-6 lg:mb-8">
                 <div className="flex items-center justify-between">
                   <div className="flex items-center">
-                    <div className="w-3 sm:w-4 h-1 bg-accent rounded mr-2 sm:mr-3"></div>
+                    <div className="w-3 sm:w-4 h-1 bg-green-500 rounded mr-2 sm:mr-3"></div>
                     <span className="text-xs sm:text-sm text-gray-700">Amount Invested</span>
                   </div>
                   <span className="font-bold text-xs sm:text-sm text-gray-800">
@@ -314,11 +314,11 @@ const SIPCalculator = () => {
               </div>
 
               {/* Invest Now Button */}
-              <Link to="/contact">
+              <ContactFormModal buttonText="Investment Consultation">
                 <button className="w-full bg-primary hover:bg-primary/90 text-white font-bold py-3 sm:py-4 px-4 sm:px-6 rounded-lg text-sm sm:text-lg transition-colors duration-300">
                   INVEST NOW
                 </button>
-              </Link>
+              </ContactFormModal>
             </div>
           </div>
         </div>

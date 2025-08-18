@@ -1,6 +1,6 @@
 import { Button } from '@/components/ui/button';
 import advisorImage from '@/assets/advisor-working.jpg';
-import { Link } from 'react-router-dom';
+import ContactFormModal from './ContactFormModal';
 
 const CTA = () => {
   return (
@@ -43,11 +43,11 @@ const CTA = () => {
                  <span className="text-sm sm:text-base text-muted-foreground">Goal-based financial planning</span>
                </div>
              </div>
-             <Link to="/contact">
+             <ContactFormModal buttonText="Book Free Consultation" formType="cta">
                <Button className="btn-hero text-base sm:text-lg w-full sm:w-auto">
                  Schedule Your Free Consultation
                </Button>
-             </Link>
+             </ContactFormModal>
            </div>
           
                      <div className="block relative order-1 lg:order-2 mb-8 lg:mb-0">
