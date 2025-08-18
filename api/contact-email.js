@@ -34,12 +34,14 @@ export default async function handler(req, res) {
     const gmailUser = process.env.GMAIL_USER || 'buddhadevdrashti@gmail.com';
     const gmailPass = process.env.GMAIL_PASS || 'ehwa fwsm fwgh hsgc';
     
-    const transporter = nodemailer.createTransporter({
-      service: 'gmail',
+    const transporter = nodemailer.createTransport({
+      host: 'smtp.gmail.com',
+      port: 465,
+      secure: true,
       auth: {
         user: gmailUser,
-        pass: gmailPass
-      }
+        pass: gmailPass,
+      },
     });
 
     // Email content - handle forms with and without message field
@@ -61,10 +63,11 @@ export default async function handler(req, res) {
       `;
 
     const mailOptions = {
-      from: 'buddhadevdrashti@gmail.com',
+      from: gmailUser,
       to: '211260116010setiit@gmail.com',
       subject: `New Contact Form Submission from ${customerName}`,
-      html: emailContent
+      html: emailContent,
+      replyTo: email
     };
 
     // Send email
