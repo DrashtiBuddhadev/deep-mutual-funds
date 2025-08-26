@@ -1,6 +1,9 @@
+import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-import { Shield, TrendingUp, Home, Briefcase, Calculator } from 'lucide-react';
+import { Shield, TrendingUp, Home, Briefcase, Calculator, X } from 'lucide-react';
 import ContactFormModal from './ContactFormModal';
+import SIPCalculator from './SIPCalculator';
 
 interface HeroProps {
   title: string;
@@ -17,13 +20,25 @@ const Hero = ({
   backgroundImage,
   className = ""
 }: HeroProps) => {
+  const navigate = useNavigate();
+  const [isSIPModalOpen, setIsSIPModalOpen] = useState(false);
+  
   const services = [
     { icon: Shield, label: 'Corporate Risk Management' },
     { icon: TrendingUp, label: 'Mutual Fund & Investment Planning(SIP & SWP)' },
     { icon: Home, label: 'Estate Creation and Legacy Planning' },
     { icon: Briefcase, label: 'Portfolio Management Services (PMS)' },
-    { icon: Calculator, label: 'Tax and Compliance Advisory' }
+    { icon: Calculator, label: 'SIP Calculator' }
   ];
+
+  // Handle service icon clicks
+  const handleServiceClick = (service: typeof services[0]) => {
+    if (service.label === 'SIP Calculator') {
+      setIsSIPModalOpen(true);
+    } else {
+      navigate('/services');
+    }
+  };
 
   // Check if this is a non-home page (hero-no-circular class)
   const isHomePage = !className.includes('hero-no-circular');
@@ -99,7 +114,8 @@ const Hero = ({
                   {services.map((service, index) => (
                     <div
                       key={service.label}
-                      className="flex items-center p-4 bg-white/80 backdrop-blur-lg rounded-lg border border-white/50 hover:bg-white/90 transition-all duration-300 shadow-xl"
+                      className="flex items-center p-4 bg-white/80 backdrop-blur-lg rounded-lg border border-white/50 hover:bg-white/90 transition-all duration-300 shadow-xl cursor-pointer"
+                      onClick={() => handleServiceClick(service)}
                     >
                       <div className="w-10 h-10 rounded-full flex items-center justify-center mr-4 flex-shrink-0" style={{backgroundColor: '#e3b317'}}>
                         <service.icon className="w-5 h-5 text-white" />
@@ -196,6 +212,7 @@ const Hero = ({
                         left: `calc(50% + ${x}px - 32px)`,
                         top: `calc(50% + ${y}px - 32px)`,
                       }}
+                      onClick={() => handleServiceClick(service)}
                     >
                       <service.icon className="w-8 h-8 text-white transition-colors drop-shadow-lg" onMouseEnter={(e) => e.currentTarget.style.color = '#e3b317'} onMouseLeave={(e) => e.currentTarget.style.color = 'white'} />
                       <div className="absolute -bottom-10 left-1/2 transform -translate-x-1/2 text-sm font-medium text-slate-900 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity bg-white/95 backdrop-blur-lg px-3 py-2 rounded-lg border border-white/40 shadow-xl">
@@ -210,6 +227,37 @@ const Hero = ({
           )}
         </div>
       </div>
+
+      {/* SIP Calculator Modal */}
+      {isSIPModalOpen && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center">
+          {/* Backdrop */}
+          <div 
+            className="absolute inset-0 bg-black/50 backdrop-blur-sm" 
+            onClick={() => setIsSIPModalOpen(false)}
+          ></div>
+          
+          {/* Modal Content */}
+          <div className="relative z-10 max-w-6xl max-h-[95vh] mx-4 overflow-y-auto">
+            <div className="bg-white rounded-2xl shadow-2xl">
+              {/* Close Button */}
+              <div className="sticky top-0 z-20 flex justify-end p-4 bg-white rounded-t-2xl border-b">
+                <button
+                  onClick={() => setIsSIPModalOpen(false)}
+                  className="p-2 hover:bg-gray-100 rounded-full transition-colors"
+                >
+                  <X className="w-6 h-6 text-gray-500" />
+                </button>
+              </div>
+              
+              {/* SIP Calculator Component */}
+              <div className="overflow-y-auto">
+                <SIPCalculator />
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

@@ -4,6 +4,7 @@ import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 import advisorImage from '@/assets/advisor-working.jpg';
+import ContactFormModal from '@/components/ContactFormModal';
 
 const CaseStudies = () => {
   const navigate = useNavigate();
@@ -231,9 +232,11 @@ const CaseStudies = () => {
                   <span className="text-sm sm:text-base text-muted-foreground">Expert financial planning guidance</span>
                 </div>
               </div>
-              <Button className="btn-hero text-base sm:text-lg w-full sm:w-auto">
-                👉 Schedule Your Free Consultation
-              </Button>
+              <ContactFormModal buttonText="Schedule Your Free Consultation">
+                <Button className="btn-hero text-base sm:text-lg w-full sm:w-auto">
+                  👉 Schedule Your Free Consultation
+                </Button>
+              </ContactFormModal>
               <p className="text-sm text-muted-foreground">
                 Or Call: <span className="font-semibold text-primary">+91 76000 21664</span> | <span className="font-semibold text-primary">+91 94081 02596</span>
               </p>

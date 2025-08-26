@@ -3,6 +3,7 @@ import Hero from '@/components/Hero';
 import { Button } from '@/components/ui/button';
 import { Target, Users, CheckCircle, Clock, DollarSign, ArrowLeft } from 'lucide-react';
 import { useParams, useNavigate } from 'react-router-dom';
+import ContactFormModal from '../components/ContactFormModal';
 
 const CaseStudyDetail = () => {
   const { id } = useParams();
@@ -252,9 +253,11 @@ const CaseStudyDetail = () => {
             Let's discuss how we can help you achieve your financial goals with a personalized strategy.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Button className="btn-hero text-lg">
-              Schedule Your Free Consultation
-            </Button>
+            <ContactFormModal buttonText="Schedule Your Free Consultation">
+              <Button className="btn-hero text-lg">
+                Schedule Your Free Consultation
+              </Button>
+            </ContactFormModal>
           </div>
           <p className="text-base text-muted-foreground mt-6">
              Call: <span className="font-semibold text-primary">+91 76000 21664</span> | <span className="font-semibold text-primary">+91 94081 02596</span>

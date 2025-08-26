@@ -31,8 +31,8 @@ export default async function handler(req, res) {
     }
 
     // Create transporter - using environment variables or fallback
-    const gmailUser = process.env.GMAIL_USER || 'clientwork247@gmail.com';
-    const gmailPass = process.env.GMAIL_PASS || 'albd hljr filw lfqg';
+    const gmailUser = process.env.GMAIL_USER || 'deepmistry1118@gmail.com';
+    const gmailPass = process.env.GMAIL_PASS || 'ewwt xxsq byut jwrw';
     
     const transporter = nodemailer.createTransport({
       host: 'smtp.gmail.com',
@@ -64,7 +64,7 @@ export default async function handler(req, res) {
 
     const mailOptions = {
       from: gmailUser,
-      to: 'Deepmistry1118@gmail.com',
+      to: 'deep@deepinvestment.co',
       subject: `New Contact Form Submission from ${customerName}`,
       html: emailContent,
       replyTo: email

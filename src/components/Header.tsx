@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { Menu, X, Phone } from 'lucide-react';
+import ContactFormModal from './ContactFormModal';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -73,9 +74,11 @@ const Header = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:flex items-center">
-            <Button className="text-white px-6 py-2 rounded-md transition-all duration-300" style={{backgroundColor: '#e3b317'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d4a516'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#e3b317'}>
-              Get Appointment
-            </Button>
+            <ContactFormModal buttonText="Get Appointment">
+              <Button className="text-white px-6 py-2 rounded-md transition-all duration-300" style={{backgroundColor: '#e3b317'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d4a516'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#e3b317'}>
+                Get Appointment
+              </Button>
+            </ContactFormModal>
           </div>
 
           {/* Mobile menu button */}
@@ -110,9 +113,11 @@ const Header = () => {
                 </Link>
               ))}
               <div className="pt-4 px-4">
-                <Button className="text-white w-full transition-all duration-300" style={{backgroundColor: '#e3b317'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d4a516'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#e3b317'}>
-                  Get Appointment
-                </Button>
+                <ContactFormModal buttonText="Get Appointment">
+                  <Button className="text-white w-full transition-all duration-300" style={{backgroundColor: '#e3b317'}} onMouseEnter={(e) => e.currentTarget.style.backgroundColor = '#d4a516'} onMouseLeave={(e) => e.currentTarget.style.backgroundColor = '#e3b317'}>
+                    Get Appointment
+                  </Button>
+                </ContactFormModal>
               </div>
             </nav>
           </div>

@@ -63,7 +63,7 @@ const Footer = () => {
               <div className="flex items-start space-x-3">
                 <Phone className="w-4 h-4 mt-1 text-accent" />
                 <div className="text-sm">
-                  <p className="text-primary-foreground/80">+91-XXXX-XXXXXX</p>
+                  <p className="text-primary-foreground/80">+91 94081 02596</p>
                   <p className="text-primary-foreground/60">Mon-Sat, 9:00 AM - 6:00 PM</p>
                 </div>
               </div>
